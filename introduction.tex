@@ -1,9 +1,23 @@
-\section{Problem Statement}
+\section{Introduction}
 
-In this lab report two topics are studied: Watts-Strogatz networks and Markov-chain convergence. 
+The fundamental concept for this study, and for interpreting the type of data produced by TALYS, is the
+\emph{nuclear cross section}. Cross sections quantify reaction probabilities and are directly related to
+particle-emission spectra. For emission of a particle $b$ into a solid-angle element $d\Omega$, the
+differential cross section $d\sigma/d\Omega$ has dimensions of area, since $d\Omega$ is dimensionless.
+When the outgoing energy $E_b$ is resolved, the relevant observable is the (double-)differential quantity
+%
+\begin{equation}
+\frac{d^2\sigma}{d\Omega\, dE_b},
+\label{eq:ddxs}
+\end{equation}
+%
+which describes how the probability of emission is distributed in angle and energy.
 
-A Watts-Strogatz network is a type of random undirected graph (a collection of nodes and connecting vertices) that is used to model social networks. In the first part of this report Watts-Strogatz networks are studied using large statistical sets and then varying different parameters of the network. The studied network characteristics are the node degree distributions, statistics of connected components, shortest path distance, diameter, average path length and the clustering coefficient. 
-
-A Markov chain is a stochastic process that describes a sequence of possible events in which the probability of each event depends only on the state attained in the previous event. In the second part of this report Markov-chain convergence to its stationary distribution is studied. First the theory behind  Markov chain convergence, stationary distribution, error dynamics and spectral decomposition is explained. Then the convergence to a stationary distribution is numerically computed.
-
-Based on the findings of the two topics' questions about both Watts-Strogatz networks and Markov chains are answered in the Synthesis section of this report.
+In this project, nuclear reactions are modelled with TALYS and the resulting energy-differential light-ion
+spectra are compared with selected experimental datasets from EXFOR. TALYS can simulate
+reactions up to about 200~MeV by combining several physical mechanisms within a consistent
+reaction-chain description. An incident projectile on a target nucleus may lead to a sequence of residual
+nuclei, each requiring appropriate nuclear-structure and reaction inputs, such as separation energies,
+optical potentials, and level densities. For each reaction, TALYS provides both the total predicted spectrum
+and a decomposition into contributions associated with different mechanisms: direct-like,
+pre-equilibrium, compound, and multiple pre-equilibrium emission.
