@@ -1,51 +1,51 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,10pt]{article}
 
-\input{texfiles/preamble}
-\usepackage{xcolor}
-\usepackage{minted}
-\usemintedstyle{arduino}
+\input{preamble}
 
-
-\pagestyle{fancy}
-\fancyhf{}
-\rhead{}
-\lhead{1MA256 Modelling Complex Systems}
-
-\cfoot{--\ \thepage \ --}
-\definecolor{doc}{RGB}{0,60,110}
-\renewcommand{\arraystretch}{1.2}
-\title{\huge Laboration 3: Watts-Strogatz Networks and Markov-Chain Convergence}
-\author{Group Supermodels\\
-        Vootele Mets \\    
-        Juan Rodriguez \\ 
-        Marco Malosti \\ 
-        Björk Lucas\\
-        Sofia Fernandes \\         
-        David Weingut}
-\date{\today} 
 \begin{document}
-\maketitle
-\vspace{5mm}
-\begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.5\textwidth]{figs/uu_logo (1).png}
-\end{figure}
-\vspace*{\fill} 
-\pagenumbering{roman}
-\newpage
-\tableofcontents
-\setcounter{page}{1}
+
+% Title page
+\selectlanguage{english}
 \pagenumbering{arabic}
+\pagestyle{empty}
 \maketitle
 
-\newpage
-\linenumbers
-\input{texfiles/introduction}
+\begin{figure}[b]
+    \centering
+    \includegraphics[width=3cm]{Images/UU_logo.jpg}
+\end{figure}
+\thispagestyle{empty}
+
+\clearpage
+\selectlanguage{english}
+\tableofcontents
+
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\pagestyle{plain}
+
+\section*{Abstract}
+
+The aim of this project was to use TALYS to calculate energy-differential light-ion emission and to compare the resulting spectra with selected experimental datasets from EXFOR. We focus on proton emission for several targets (Si, Fe, Cr, V, Co), and on deuteron and alpha emission for silicon. This selection allows us to assess which datasets and incident neutron energies are most informative for constraining TALYS predictions, and to study how model choices and parameters affect both the differential spectra and the corresponding integrated cross sections.
+
+% TODO: Add a short summary of the main results and conclusions.
+
 \newpage
 
-\section{Watts-Strogatz Networks}
-\input{texfiles/WS_theory}
+\input{introduction}
+\input{theory}
+\input{methods}
+\input{results}
+\input{discussion}
+\input{conclusion}
+\input{appendix}
 
+% Uncomment this only if you actually cite references in the text
+% \bibliographystyle{plainnat}
+% \bibliography{main}
+
+\end{document}
 \newpage
 
 \input{texfiles/methods_WS}
