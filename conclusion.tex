@@ -1,40 +1,7 @@
-\subsection{Synthesis}
+\section{Conclusion}
 
-\begin{itemize}
-    \item For which values of $p$ do you see high clustering together with short average path length?
-    
-We can see an especially large difference between clustering and average shortest path length at $p=0.01, 0.03, 0.1$. The clustering for these values values of p is roughly
-at $0.95$, $ 0.9$ and $0.75$, while the average shortest path length has already decreased to $0.55$, $0.4$ and $0.25$ (all values are normalised by the value at p=0).
+This project used TALYS to calculate energy-differential light-ion emission spectra and compared the results with selected EXFOR datasets. The comparison focused on proton production for several targets, and on deuteron and alpha production for silicon. Four pre-equilibrium configurations were tested in order to assess the sensitivity of the predicted spectra to model choices.
 
-    \item How variable are the Watts--Strogatz statistics across different random realizations with the same $p$?
-    
-Looking at Figure \ref{fig:cluster_coeff}, the error bars and with this the standard deviation of the values highly depends on the p value.
-For very low p, the standard deviation of the average shortest path length is very high. 
-The low probability of rewiring an edge leads to graphs with very different shortest paths: No rewiring can happen, which leaves the shortest path length untouched. 
-One or a few very efficient shortcuts, however, can decrease the shortest path length very quickly. We assume this is where the large standard deviation comes from. 
-At higher values of p the graphs get more and more random and the statistical process of rewiring so many edges distributes them so that the shortest paths are very similar in all graphs.
-For the clustering coefficient we see the highest uncertainty for the higher p values. 
-At low p values only a few connections will be rewired and only by this amount can the clustering coefficient change. 
-When more edges get rewired more connections between neighbours are broken up. The clustering will depend a lot on how exactly the connections are rewired.
-At $p=1$ the standard deviation of the clustering is again very small. Again, this is due to the high statistics when rewiring each edge. 
+The results show that proton production is generally reproduced more smoothly than deuteron production. For proton spectra, the main peak is often reasonably described, while the shoulder and high-energy tail are the most useful regions for distinguishing between pre-equilibrium modes. For deuteron spectra, TALYS shows stronger discrepancies, including sharp structures and abrupt cut-offs at high outgoing energies. The alpha-production case indicates that the absence of low-energy experimental points can limit the ability to constrain the evaporation component.
 
-   \item In the Markov-chain experiment, how does the second-largest eigenvalue modulus affect the observed convergence speed?
-
-The second-largest eigenvalue modulus \(\mu\) determines the speed at which the Markov chain approaches the stationary distribution. When \(\mu\) is smaller, the term \(\mu^t\) decreases faster, so the distance between \(x_t\) and \(\pi\) becomes small in fewer steps. When \(\mu\) is closer to \(1\), \(\mu^t\) decreases more slowly, so convergence takes longer.
-
-This can be seen in the numerical results. The original matrix \(P_0\) has the smallest value of \(\mu\), and it converges the fastest. For the lazy matrices, increasing \(\alpha\) moves the nontrivial eigenvalues closer to \(1\), which therefore increases \(\mu\). As a result, the convergence rate increases like this, \(P_{0.8}\) \rightarrow \(P_{0.5}\) \rightarrow \(P_0\). The observed convergence speed agrees with the spectral prediction, in the theoretical section, larger \(\mu\) means slower convergence.
-
-\item Why is the spectral gap \(g = 1 - \mu\) a more direct predictor of convergence speed than visual inspection of the entries of \(P\)?
-
-The spectral gap \(g = 1 - \mu\) is a more direct predictor of convergence speed because it measures how quickly the slowest non-stationary component of the distribution decays. The entries of \(P\) show the one-step transition probabilities, but they do not directly show how repeated multiplication by \(P\) behaves over many time steps. Two matrices can look similar when analysed entry by entry, but having different eigenvalues, can result in very different long-term convergence speeds.
-
-The spectral gap is able to summarize this long-term behaviour. If \(g\) is large, then \(\mu\) is far from \(1\), so the error decreases quickly. If \(g\) is small, then \(\mu\) is close to \(1\), so the error decreases slowly. For this reason, \(g\) is more informative and precise.
-
-\item What are the limitations of using only one graph realization for each value of \(p\), or only one initial condition for the Markov chain?
-
-Using only one graph for each value of \(p\) is limited since the Watts - Strogatz model is random for \(p>0\). A single graph may not represent the typical behaviour for that value of \(p\), especially for small \(p\), where the presence or absence of only a few shortcuts can strongly affect the average path length.
-
-Similarly, using only one initial condition for the Markov chain is limited because the observed convergence can depend on where the chain starts. Some initial distributions may have a larger component in the slowest-decaying eigenvector direction, while others may have a smaller one. Even if one initial condition is enough to illustrate the spectral mechanism, it does not fully describe all possible convergence behaviours. For a more complete experiment, it would be needed several initial states to make a direct comparison and conclusion of the overall trend.
-
-Overall, scientific research should be done varying all the different parameters that can affect the system at play so a comparison can be done and a long-term behaviour can be studied.
-\end{itemize}
+Overall, the most informative comparisons are those that combine the total spectra, logarithmic-scale plots, ratio plots, and component decompositions. This approach makes it possible not only to identify the best-performing TALYS configuration for each case, but also to understand where and why the model deviates from the experimental data.
