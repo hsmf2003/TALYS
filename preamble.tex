@@ -1,36 +1,70 @@
-% =========================
-% DOCUMENT CLASS
-% =========================
-
-\usepackage[a4paper,
-  top=2.8cm,
-  bottom=2.54cm,
-  left=3.8cm,
-  right=2.54cm]{geometry}
-\usepackage{parskip}
-\usepackage{url}
-
-% =========================
-% FONT (LuaLaTeX)
-% =========================
-\usepackage{fontspec}
-%\setmainfont{TeX Gyre Termes}
-
-\usepackage{mathtools}
-\usepackage{unicode-math}
-%\setmathfont{TeX Gyre Termes Math}
-%\setmathfont{Latin Modern Math}[range={\int,\oint,\sum}]
-
-\thinmuskip=4mu
-\medmuskip=4mu plus 2mu minus 2mu
-\thickmuskip=5mu plus 5mu
-\removenolimits{\int}
-
-% =========================
-% LANGUAGE
-% =========================
 \usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.5cm]{geometry}
 
+% Math + symbols
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mhchem}
+
+\newif\ifdraftfigs
+\draftfigsfalse % keep FALSE to show figures; switch to TRUE only for draft placeholders
+
+\ifdraftfigs
+  \PassOptionsToPackage{draft}{graphicx}
+\fi
+
+% Figures + tables
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Units etc.
+\usepackage{siunitx}
+\usepackage{gensymb}
+\sisetup{locale=DE}
+
+% Formatting
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{xcolor}
+\usepackage{wasysym}
+\onehalfspacing
+
+% Appendix + ToC extras
+\usepackage[toc,page]{appendix}
+\usepackage[nottoc]{tocbibind}
+
+% Bibliography
+\usepackage{natbib}
+
+% Prevent orphan headings
+\usepackage{needspace}
+
+% Hyperlinks
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,capitalise,noabbrev]{cleveref}
+\crefname{figure}{Fig.}{Figs.}
+\crefname{subfigure}{Fig.}{Figs.}
+
+% Helper: keeps \paragraph with what follows
+\newcommand{\Epar}[1]{%
+  \Needspace{0.25\textheight}%
+  \paragraph{#1}\mbox{}\par\smallskip
+}
+
+\hyphenation{EXCEL MATLAB världens-längsta-ord}
+
+\def\bblend{uppl.}
+
+\title{\textbf{TALYS -- Project}\vspace{1cm}}
+\author{Helena Fernandes\\[1cm]\emph{Department of Physics}}
+\date{\today}
 % =========================
 % CORE MATH PACKAGES
 % =========================
