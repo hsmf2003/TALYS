@@ -1,27 +1,24 @@
-\subsection{Theory}
-Watts-Strogatz graphs are a type of network that are constructed as follows: 
-\begin{itemize}
-    \item $N$ nodes are arranged on a ring
-    \item In the beginning all nodes are connected to their $k/2$ closest neighbours to both sides (every node has degree $k$)
-    \item Each edge is rewired with a probability of $p$ (no self-loops or duplicate edges allowed)
-\end{itemize}
+\section{Introduction}
 
-Independent of $p$, all graphs with the same $N$ and $k$ will have the same number of edges.
-However, these edges will be placed different depending on $p$ as a rewired edge can be placed anywhere and not only between nodes situated close to each other. 
-For small $p\ne0$ the rewiring will lead to a few long-range shortcuts. For $p=1$ all edges are rewired and we get a completely random graph. Below is a visualisation of the graph.
+The fundamental concept for this study, and for interpreting the type of data produced by TALYS, is the
+\emph{nuclear cross section}. Cross sections quantify reaction probabilities and are directly related to
+particle-emission spectra. For emission of a particle $b$ into a solid-angle element $d\Omega$, the
+differential cross section $d\sigma/d\Omega$ has dimensions of area, since $d\Omega$ is dimensionless.
+When the outgoing energy $E_b$ is resolved, the relevant observable is the (double-)differential quantity
+%
+\begin{equation}
+\frac{d^2\sigma}{d\Omega\, dE_b},
+\label{eq:ddxs}
+\end{equation}
+%
+which describes how the probability of emission is distributed in angle and energy.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{figs/WSgraph_visual.pdf}
-    \caption{A Watts-Strogatz graph with $N=30$, $k=6$ and $p=0.1$. The lines inside the circle are the random edges generated with a non-zero $p$.}
-    \label{fig:WScircleplot}
-\end{figure}
-
-\input{texfiles/degree_theory.tex}
-
-\input{texfiles/connected_theory.tex}
-
-\input{texfiles/diameter_ASPL_theory.tex}
-
-\input{texfiles/clustering_theory}
+In this project, nuclear reactions are modelled with TALYS and the resulting energy-differential light-ion
+spectra are compared with selected experimental datasets from EXFOR. TALYS can simulate
+reactions up to about 200~MeV by combining several physical mechanisms within a consistent
+reaction-chain description. An incident projectile on a target nucleus may lead to a sequence of residual
+nuclei, each requiring appropriate nuclear-structure and reaction inputs, such as separation energies,
+optical potentials, and level densities. For each reaction, TALYS provides both the total predicted spectrum
+and a decomposition into contributions associated with different mechanisms: direct-like,
+pre-equilibrium, compound, and multiple pre-equilibrium emission.
 
