@@ -1,0 +1,487 @@
+A Markov chain is a mathematical framework typically categorized as a collection of random variables that progresses starting with one state then onto the next based on probabilistic guidelines. The likelihood of changing to a specific state depends exclusively on the present state and elapsed time and not on the series of states that have preceded it; it does not retain memory. This progression of states of a framework is called transitions \cite{sciencedirect_markov_chain}. In our case the Markov chain is time independent. One application of Markov chains is very present while doing this project, for example. The PageRank algorithm is one of the most used applications.
+Originally, it was developed to rank web pages in search engines. In this context, each web page can be considered a state, and each link from one page to another represents a possible transition. Pages with a higher stationary probability are interpreted as more important, because, in the long run, someone would visit them more often than the others \cite{roberts2016pagerank}.
+
+
+
+The convergence of a Markov chain to equilibrium can be studied through the eigenvalues of its transition matrix. Since in our case \(P\) is a stochastic matrix, the largest eigenvalue is
+\[
+\lambda_1 = 1.
+\]
+This eigenvalue corresponds to the stationary distribution \(\pi\), which satisfies
+\[
+P\pi = \pi.
+\]
+
+The remaining eigenvalues describe how fast the non-stationary parts of the initial distribution decay. If the eigenvalues are ordered by decreasing modulus,
+\[
+\lambda_1 = 1, \qquad |\lambda_2| \geq |\lambda_3| \geq \cdots \geq |\lambda_N|,
+\]
+then the second-largest eigenvalue modulus is defined as 
+\[
+\mu = |\lambda_2|.
+\]
+
+The value of \(\mu\) controls the asymptotic rate of convergence to stationarity \cite{gade2009secondlargest}. If \(\mu\) is close to \(1\), then the convergence is slow, because the dominant non-stationary component decays slowly. If \(\mu\) is farther from \(1\), then the convergence is faster.
+
+It is therefore useful to define the spectral gap as
+\[
+g = 1-\mu.
+\]
+A larger spectral gap means faster convergence, while a smaller spectral gap means slower convergence.
+
+In this exercise, we use the column-stochastic convention \cite{backaker2012googlemarkovchain}. This means that if \(x_t\) is the probability distribution at time \(t\), then the dynamics are given by
+\[
+x_{t+1}=Px_t.
+\]
+Each column of \(P\) must sum to \(1\), ensuring that the total probability is preserved at each step.
+
+We also consider the lazy variants \cite{figueras2026lab03}
+\[
+P_\alpha = \alpha I + (1-\alpha)P_0,
+\]
+with \(\alpha=0.5\) and \(\alpha=0.8\). Increasing \(\alpha\) means that the chain has a larger probability of remaining in its current state.
+
+The lazy variants have the same stationary distribution as \(P_0\). If \(\lambda\) is an eigenvalue of \(P_0\), then
+\[
+\alpha + (1-\alpha)\lambda
+\]
+is the corresponding eigenvalue of \(P_\alpha\). Therefore, larger values of \(\alpha\) move the nontrivial eigenvalues closer to \(1\), which increases \(\mu\), decreases the spectral gap, and slows down convergence.
+
+\[
+P_0 =
+\begin{pmatrix}
+0.60 & 0.20 & 0.15 & 0.10 \\
+0.20 & 0.50 & 0.20 & 0.20 \\
+0.10 & 0.20 & 0.45 & 0.20 \\
+0.10 & 0.10 & 0.20 & 0.50
+\end{pmatrix}.\label{sec:P0_def}
+\]
+
+Then repeat the experiment for the lazy variants
+\[
+P_\alpha = \alpha I + (1-\alpha)P_0,
+\qquad \alpha = 0.5,\; 0.8.
+\]
+
+\[
+P_\alpha
+=
+\alpha
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}
++
+(1-\alpha)
+\begin{pmatrix}
+0.60 & 0.20 & 0.15 & 0.10 \\
+0.20 & 0.50 & 0.20 & 0.20 \\
+0.10 & 0.20 & 0.45 & 0.20 \\
+0.10 & 0.10 & 0.20 & 0.50
+\end{pmatrix}.
+\]
+
+\[
+P_{0.5}
+=
+0.5
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}
++
+0.5
+\begin{pmatrix}
+0.60 & 0.20 & 0.15 & 0.10 \\
+0.20 & 0.50 & 0.20 & 0.20 \\
+0.10 & 0.20 & 0.45 & 0.20 \\
+0.10 & 0.10 & 0.20 & 0.50
+\end{pmatrix}
+=
+\begin{pmatrix}
+0.80 & 0.10 & 0.075 & 0.05 \\
+0.10 & 0.75 & 0.10 & 0.10 \\
+0.05 & 0.10 & 0.725 & 0.10 \\
+0.05 & 0.05 & 0.10 & 0.75
+\end{pmatrix}.
+\]
+
+\[
+P_{0.8}
+=
+0.8
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}
++
+0.2
+\begin{pmatrix}
+0.60 & 0.20 & 0.15 & 0.10 \\
+0.20 & 0.50 & 0.20 & 0.20 \\
+0.10 & 0.20 & 0.45 & 0.20 \\
+0.10 & 0.10 & 0.20 & 0.50
+\end{pmatrix}
+=
+\begin{pmatrix}
+0.92 & 0.04 & 0.03 & 0.02 \\
+0.04 & 0.90 & 0.04 & 0.04 \\
+0.02 & 0.04 & 0.89 & 0.04 \\
+0.02 & 0.02 & 0.04 & 0.90
+\end{pmatrix}.
+\]
+
+Given what was stated above, for a general Markov chain, if you encounter an eigenvalue very close to \(-1\), the chain will converge slowly. This convergence also comes with oscillations because of the associated error component, which is associated with an eigenvalue, evolving approximately as
+\[
+\lambda^t \approx (-1)^t |\lambda|^t.
+\]
+The distribution, therefore, oscillates between states, instead of smoothly approaching the stationary distribution.
+
+Now, replacing the original chain by the lazy chain,
+\[
+P_{\mathrm{lazy}}
+=
+\frac{1}{2}
+\left[
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}
++
+\begin{pmatrix}
+0.60 & 0.20 & 0.15 & 0.10 \\
+0.20 & 0.50 & 0.20 & 0.20 \\
+0.10 & 0.20 & 0.45 & 0.20 \\
+0.10 & 0.10 & 0.20 & 0.50
+\end{pmatrix}
+\right].
+\]
+
+\[
+P_{\mathrm{lazy}}
+=
+\frac{1}{2}
+\begin{pmatrix}
+1.60 & 0.20 & 0.15 & 0.10 \\
+0.20 & 1.50 & 0.20 & 0.20 \\
+0.10 & 0.20 & 1.45 & 0.20 \\
+0.10 & 0.10 & 0.20 & 1.50
+\end{pmatrix}.
+\]
+
+\[
+P_{\mathrm{lazy}}
+=
+\begin{pmatrix}
+0.80 & 0.10 & 0.075 & 0.05 \\
+0.10 & 0.75 & 0.10 & 0.10 \\
+0.05 & 0.10 & 0.725 & 0.10 \\
+0.05 & 0.05 & 0.10 & 0.75
+\end{pmatrix}.
+\]
+
+\subsubsection{Stationary distribution}
+
+A Markov chain that is irreducible and aperiodic with finite state space has a unique stationary distribution \(\pi\), which is a probability vector such that
+\[
+P\pi = \pi.
+\]
+
+Additionally, the transition probabilities converge to a steady state when the number of steps goes to infinity, in the sense that
+\[
+\lim_{m \to \infty} p_{ij}^{(m)} = \pi_i
+\qquad \text{for all } i,j \in S.
+\]
+
+Observing matrix \(P_0\), we can directly infer that there are no negative values. To satisfy
+\[
+\sum_i (P_0)_{ij} = 1,
+\]
+we have that
+\[
+0.60 + 0.20 + 0.10 + 0.10 = 1;
+\]
+\[
+0.20 + 0.50 + 0.20 + 0.10 = 1;
+\]
+\[
+0.15 + 0.20 + 0.45 + 0.20 = 1;
+\]
+\[
+0.10 + 0.20 + 0.20 + 0.50 = 1.
+\]
+Satisfying both conditions for a valid transition matrix.
+
+Computing the stationary distribution \(\pi\) as the eigenvector associated with the eigenvalue \(\lambda = 1\), \(\pi\) satisfies
+\[
+P_0 \pi = \pi.
+\]
+Equivalently, we can formulate the eigenvalue problem as
+\[
+(P_0-I)\pi = 0.
+\]
+
+We can solve this considering,
+\[
+\pi =
+\begin{pmatrix}
+\pi_1\\
+\pi_2\\
+\pi_3\\
+\pi_4
+\end{pmatrix}.
+\]
+
+So,
+\[
+P_0-I =
+\begin{pmatrix}
+-0.40 & 0.20 & 0.15 & 0.10\\
+0.20 & -0.50 & 0.20 & 0.20\\
+0.10 & 0.20 & -0.55 & 0.20\\
+0.10 & 0.10 & 0.20 & -0.50
+\end{pmatrix}.
+\]
+
+The system to solve is then
+\[
+\begin{cases}
+-0.40\pi_1 + 0.20\pi_2 + 0.15\pi_3 + 0.10\pi_4 = 0,\\
+0.20\pi_1 - 0.50\pi_2 + 0.20\pi_3 + 0.20\pi_4 = 0,\\
+0.10\pi_1 + 0.20\pi_2 - 0.55\pi_3 + 0.20\pi_4 = 0,\\
+0.10\pi_1 + 0.10\pi_2 + 0.20\pi_3 - 0.50\pi_4 = 0.
+\end{cases}
+\]
+
+Since \(\pi\) is a probability distribution, we have to impose the normalization condition
+\[
+\pi_1+\pi_2+\pi_3+\pi_4=1.
+\]
+
+Solving this system gives
+\[
+\pi =
+\begin{pmatrix}
+\frac{149}{532}\\[2mm]
+\frac{2}{7}\\[2mm]
+\frac{61}{266}\\[2mm]
+\frac{109}{532}
+\end{pmatrix}.
+\approx
+\begin{pmatrix}
+0.2801\\
+0.2857\\
+0.2293\\
+0.2049
+\end{pmatrix}.
+\]
+
+We can then check that the entries also sum to \(1\):
+\[
+0.2801 + 0.2857 + 0.2293 + 0.2049 \approx 1.
+\]
+This way, we can verify that the distribution is stationary,
+\[
+P_0\pi =
+\begin{pmatrix}
+0.60 & 0.20 & 0.15 & 0.10\\
+0.20 & 0.50 & 0.20 & 0.20\\
+0.10 & 0.20 & 0.45 & 0.20\\
+0.10 & 0.10 & 0.20 & 0.50
+\end{pmatrix}
+\begin{pmatrix}
+0.2801\\
+0.2857\\
+0.2293\\
+0.2049
+\end{pmatrix}
+\approx
+\begin{pmatrix}
+0.2801\\
+0.2857\\
+0.2293\\
+0.2049
+\end{pmatrix}.
+\]
+
+Concluding,
+\[
+P_0\pi \approx \pi,
+\]
+so \(\pi\) is the stationary distribution of the Markov chain.
+
+The stationary distribution \(\pi\) is an equilibrium for the Markov-chain dynamics because it remains unchanged when the transition matrix is applied, which means
+\[
+P\pi = \pi.
+\]
+So, if the chain has a distribution \(\pi\) at time \(t\), it will also have distribution \(\pi\) at time \(t+1\). However, this does not mean that an individual realization of the chain remains fixed in one state, because a single trajectory may continue to move between states. So, in this case, stationarity means that the overall probability of being in a state remains constant over time.
+This probability can be observed from individual chains by averaging over a large number of individual trajectories or a single very long trajectory.
+
+\subsubsection{Error dynamics}
+
+Considering \(x_0\) as an initial probability distribution, with stationary distribution 
+\[
+P\pi=\pi,
+\]
+and initial state $x_0$ the evolution can be described by
+\[
+x_t = P^t x_0.
+\]
+
+We can set
+\begin{equation}
+e_t = x_t - \pi.\label{eq:e_def}
+\end{equation}
+With the assumption of the stationary distribution, we know that if the chain has a distribution \(\pi\) at time \(t\), it will also have distribution \(\pi\) at time \(t+1\). So, in order to calculate the following term,
+\[
+e_{t+1},
+\]
+we just need to apply the transition matrix. This can be shown by putting the update equation,
+\[
+x_{t+1}=Px_t
+\]
+in equation \ref{eq:e_def}.
+We obtain
+\[
+e_{t+1}=Px_t-\pi.
+\]
+
+Since \(\pi\) is stationary, we have \(\pi=P\pi\). Therefore,
+\[
+e_{t+1}=Px_t-P\pi.
+\]
+
+Factoring out \(P\), we get
+\[
+e_{t+1}=P(x_t-\pi).
+\]
+
+Since \(e_t=x_t-\pi\), this gives
+\[
+e_{t+1}=Pe_t.
+\]
+
+Applying this relation repeatedly gives
+\[
+e_1=Pe_0,
+\]
+\[
+e_2=Pe_1=P^2e_0,
+\]
+\[
+e_3=Pe_2=P^3e_0.
+\]
+\[
+\vdots
+\]
+
+Therefore, as a general rule, we obtain
+\[
+e_t=P^t e_0.
+\]
+
+Given this general rule, it is clear that the convergence is determined by how the powers of \(P\) act on the initial error \(e_0\). This means that if \(P^t e_0\) becomes small as \(t\) increases, then \(e_t\) also becomes small, resulting in \(x_t\) approaching \(\pi\). One can conclude that the Markov chain converges to stationarity when the initial error is progressively reduced by repeated multiplications of \(P\).
+To analyze this convergence we employ spectral analysis.
+
+\subsubsection{Spectral Decomposition}
+The spectral decomposition follows the argument given in the lab instructions \cite{figueras2026lab03}. Assuming diagonalizable \(P\), its eigenvalues can be ordered by their moduli,
+\[
+\lambda_1=1, \qquad |\lambda_2|\geq |\lambda_3| \geq \cdots \geq |\lambda_N|.
+\]
+The eigenvalue \(\lambda_1=1\) corresponds to the stationary distribution \(\pi\), because applying \(P\) to \(\pi\) leaves it unchanged,
+\[
+P\pi=\pi.
+\]
+The initial error is defined as
+\[
+e_0=x_0-\pi.
+\]
+This error measures the difference between the initial distribution and the stationary distribution. Since both \(x_0\) and \(\pi\) are probability distributions, their entries both sum to \(1\). Therefore, the entries of \(e_0\) will sum to zero
+\[
+\sum_i e_0(i)=1-1=0.
+\]
+This means that \(e_0\) only describes the part of the initial distribution that must decay over time, not the stationary part that remains unchanged.
+Therefore, we can write the initial error as a linear combination of the remaining eigenvectors,
+\[
+e_0=c_2v_2+c_3v_3+\cdots+c_Nv_N.
+\]
+
+Using the error dynamics, like seen before,
+\[
+e_t=P^t e_0,
+\]
+we obtain
+\[
+e_t=P^t(c_2v_2+c_3v_3+\cdots+c_Nv_N).
+\]
+Since each eigenvector satisfies the condition
+\[
+Pv_i=\lambda_i v_i,
+\]
+we have that
+\[
+P^t v_i=\lambda_i^t v_i.
+\]
+Therefore,
+\[
+e_t=c_2\lambda_2^t v_2+c_3\lambda_3^t v_3+\cdots+c_N\lambda_N^t v_N.
+\]
+
+This expression shows that each non-stationary component of the initial error decays according to the corresponding eigenvalue. The slowest-decaying term is controlled by the largest modulus among the nontrivial eigenvalues,
+\[
+\mu=|\lambda_2|.
+\]
+So, for a suitable constant \(K\) depending on the initial condition and on the eigenvectors, we have the estimate
+\[
+\|x_t-\pi\| \leq K\mu^t.
+\]
+This explains why the second-largest eigenvalue modulus controls the convergence rate.
+
+
+\subsubsection{Estimated time to reach a tolerance}
+
+Following \cite{figueras2026lab03} we suppose an error to be smaller than a tolerance \(\varepsilon\):
+\[
+\|x_t-\pi\|\leq \varepsilon.
+\]
+Using the estimate
+\[
+\|x_t-\pi\|\lesssim K\mu^t,
+\]
+we require
+\[
+K\mu^t \lesssim \varepsilon.
+\]
+Dividing by \(K\), we get
+\[
+\mu^t \lesssim \frac{\varepsilon}{K}.
+\]
+Taking the logarithms gives
+\[
+t\log(\mu) \lesssim \log\left(\frac{\varepsilon}{K}\right).
+\]
+Since \(0<\mu<1\) for $\alpha<1$, we have \(\log(\mu)<0\). Dividing by this negative number reverses the inequality direction:
+\[
+t \gtrsim \frac{\log(K/\varepsilon)}{-\log(\mu)}.
+\]
+
+When \(\mu\) is close to \(1\), we can use the approximation
+\[
+-\log(\mu)\approx 1-\mu=g,
+\]
+where \(g\) is the spectral gap. Therefore,
+\[
+t \sim \frac{1}{g}
+\]
+where we drop the constants of the chosen tolerance and unknown but constant multiplicative factor $K$.
+This verifies the statement given in the beginning of this section, that a larger spectral gap results in a faster convergence, while a smaller spectral gap results in slower convergence.
+
+

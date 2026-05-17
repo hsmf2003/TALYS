@@ -1,0 +1,13 @@
+\subsection{Diameter and Average Shortest Path Length}
+\label{sec:WS_Diam&ASPL_result}
+
+The saved values of the diameter and average shortest path length make up two \texttt{NumPy}-arrays with a total of 16000 values. Plotting these is quite messy, so the mean and standard deviation of the 1000 iterations for each value of $p$ are computed. These are shown in the following figure:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figs/WS_diameter&ASPL.pdf}
+    \caption{The mean values of the diameter and average shortest path length for different values of $p$.}
+    \label{fig:WS_results_diam&ASPL}
+\end{figure}
+
+It is visible that the quantity of edges required to reach any node on the graph from any starting node diminishes drastically with higher quantity of random connections. In other words, the paths are generally shorter with higher $p$, and the world feels smaller.

@@ -1,0 +1,15 @@
+\subsubsection{Connected components}
+
+The connected component statistics for a Watts-Strogatz graph with $N=200$ and $k=2$ are shown in figure \ref{fig:connected_components}.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figs/WS_2_connected_plot.png}
+    \caption{Component statistics and distance quantities for a Watts-Strogatz graph with values $N=200$ and $k=2$. x-axis shows the $p$ value and y-axis the studied component statistic.}
+    \label{fig:connected_components}
+\end{figure}
+
+From the figure it is evident that the chance of not having a connected graph increases when increasing $p$ but for $p=1$ slightly decreases. Shortest path length along with radius and diameter all decrease. At $p=0$ there is only 1 connected component as the there are no random connections and each node is connected to two neighbors. The amount of connected components rises with increasing $p$ reaching a peak at around 2 for $p =0.3$ and slightly decreases for $p=1.0$ 
+
+Versions of \verb+WS_2_connected.py+ with $k=6$ and $k=4$ were also investigated but  in those cases all the created graph instances were fully connected for every $p$ value and so did not yield interesting statistics.

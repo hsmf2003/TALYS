@@ -1,0 +1,18 @@
+\subsubsection{Clustering Coefficient}
+The package \verb+NetworkX+ has the function \verb+clustering+, with which the clustering of a graph can be calculated. 
+The average shortest path length is calculated using the function \verb+nx.average_shortest_path_length+.
+In our code we iterate over the different values of $p$ ($p$ = [0, 0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1]) as well as 1000 different seeds (1-1000). 
+This way the results of our calculations are reproducible. 
+
+The function \verb+networkx.clustering+ outputs a dictionary with the local clustering coefficients of each node. 
+For each graph, we take the average of these local clustering coefficients and append them to a list for the current p. 
+After iterating over all 1000 seeds, the average for the current p-value is taken and saved to another list.
+Additionally, the standard deviation of the clustering coefficients is calculated using numpy and saved to yet another list. 
+Then we continue with the next value of p. 
+
+After iterating over all p values, the averaged values and their standard deviation are plotted using \verb+plt.errorbar+. 
+All values are normalised by the value at $p=0$.
+The whole code is timed, as we were afraid it would take too long to execute it.
+
+To reproduce Figure \ref{fig:cluster_coeff} you need to run \verb+clustering_coeff.py+.
+The required packages are \verb+NetworkX+, \verb+numpy+, \verb+matplotlib+ and \verb+time+.

@@ -1,0 +1,27 @@
+This subsection serves to explain the numerical methods employed to perform the numerical verification of the theoretical part outlined previously.
+The whole program makes heavy use of \texttt{numpy} arrays to perform matrix and vector operations as well as linear algebra.
+
+The first step is performing a test of column-stochasticity.
+As this means that all the columns sum to one, this can be achieved by testing if the entire vector consists of ones after summing over axis zero of the array corresponding to the matrix.
+The comparison is done with a tolerance of one machine epsilon, so the difference between \num{1.0} and the smallest representable 64 bit float larger than one.
+
+The stationary distribution corresponds to the sum-normalized eigenvector for the largest eigenvalue of the matrix.
+This eigenvalue is one when the matrix is column-stochastic.
+Numerically, this is retrieved by calculating eigenvalues and -vectors for the matrix with \texttt{numpy}, choosing the vector corresponding to the large eigenvalue and dividing it by the sum of the entries of the vector.
+
+The eigenvalues are calculated, as described above, with \texttt{numpy} and the second-largest one is returned as $\mu$, $g$ is calculated from it with the relation $g=1-\mu$.
+
+For the plots of convergence, the starting point with maximal distance to the stationary distribution of $P_0$ is chosen, specifically $x_0 = \left(0, 0, 0, 1\right)^T$.
+
+Iteration is done by matrix vector multiplication of $P_\alpha$ and $x_t$.
+
+The variation distance is calculated using the L1 norm $\|x\|_1=\sum_{i=1}^{N}|x_i|$ of the difference of $x_t$ and $\pi$, the stationary distribution, and dividing it by 2.
+
+Plotting is done with \texttt{matplotlib} and the multiplicative factor of $\mu^t$ is set to the variation distance at $t=0$ for the line to start at the same point and make comparisons between the slopes easier.
+
+The results can be replicated by running the python script \verb|numerics_mc.py| with different options, the options are documented when running it with argument \verb|--help|.
+To get the plots, the wished starting distribution needs to be passed as a list of four space separated values to the option \verb|--x0| and $\alpha$ values can be requested by passing them to the argument \verb|--alphas|. The plots will be written to a folder \verb|results/| that will be created if it does not exist  and can optionally be shown directly with the argument \verb|--show|.
+For replicating the statistical table the option \verb|--conv_stats| together with a number for the randomly generated instances needs to be requested.
+A seed can also be specified with \verb|--seed|.
+When doing this the option \verb|--no-save| is also helpful to disable saving of the plots and convergence times for each individual sample.
+The actual table \ref{tab:conv_stats} was generated with 10000 random instances of $x_0$.

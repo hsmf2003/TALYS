@@ -1,0 +1,10 @@
+\subsubsection{Degrees and degree distribution}
+
+
+For a graph node $i$ the degree $d_i$ describes the number of edges incident to that node. It is also possible to calculate the average degree for the whole graph using 
+
+\begin{equation}
+    \bar{d} = \frac{1}{N} \sum^N_{i = 1} d_i 
+\end{equation}
+
+where N is the total number of nodes. In the case of a Watts-Strogatz graph the average degree is equal to $k$ as initially every node is connected to $k$ other nodes. At $p=0$ there are no random connections added and every node has exactly $k$ connections and so for $p=0$ every node has the degree is $d_i = k$. As $p$ is increased, random connections appear and thus $d_i$ starts to vary between nodes but the mean $d_i$ would still be equal to $k$.

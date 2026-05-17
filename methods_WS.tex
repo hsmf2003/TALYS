@@ -1,0 +1,15 @@
+\subsection{Methods}
+The package \verb+NetworkX+ offers the function \verb+watts_strogatz_graph+ to make a Watts-Strogatz graph. 
+Conveniently, this function takes $N$, $k$ and $p$ as arguments. Using this function we created all graphs for this exercise.
+Thus, to run our code, the package \verb+NetworkX+ needs to be installed.
+We used the suggested values of $N=200$ and $k=6$ for all graphs, but will run several simulations while varying $p$. The different values of the probability will be picked from the following list: $[0.0, 0.001, 0.003, 0.01, 0.03, 0.10, 0.30, 1.0]$.
+
+The graph can also be plotted using the \texttt{draw\_circular()} or \texttt{draw\_networkx()}, which takes in the Watts-Strogatz graph and generates a circular plot or an arbitrary plot. Typically, the graph is shown as a circle and this is how it was presented in figure \ref{fig:WScircleplot}.
+
+\input{texfiles/degree_method.tex}
+
+\input{texfiles/connected_method.tex}
+
+\input{texfiles/diameter_ASPL_method.tex}
+
+\input{texfiles/method_clustering}

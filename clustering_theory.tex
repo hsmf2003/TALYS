@@ -1,0 +1,24 @@
+\subsubsection{Clustering Coefficient}
+The local clustering coefficient measures how many neighbouring nodes of one node are connected among themselves. 
+Using the example of friendship, it describes how many of your friends are friends with your other friends.
+
+Mathematically, the local clustering coefficient is the ratio of the number of edges between the neighbours and the possible number of edges between the neighbours.
+Thus, a clustering coefficient of 1 means high clustering, all neighbours are connected, while 0 means no clustering or none of a node's neighbours are connected.
+Let $d_i$ denote the degree, or number of neighbours, of node $i$. Then the maximum number of connections between node $i$'s neighbours is
+\begin{equation*}
+	\frac{d_i(d_i-1)}{2}
+\end{equation*}
+
+With $e_i$ denoting the number of these edges that are present, the local clustering coefficient becomes 
+\begin{equation*}
+C_i = \frac{2e_i}{d_i(d_i-1)}
+\end{equation*}
+If a node has only one or no neighbour ($d_i < 2$), the local clustering coefficient is automatically set to $C_i=0$.
+
+A more general number than the local clustering coefficient is the average clustering coefficient, which averages over all nodes of a graph. 
+\begin{equation*}
+C(G) = \frac{1}{N} \sum_{i=1}^{N}C_i
+\end{equation*}
+where $G$ denotes the graph and $N$ is the number of nodes. This number will be calculated for all graphs and plotted together with the average path length. 
+
+

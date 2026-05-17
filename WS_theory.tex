@@ -1,0 +1,27 @@
+\subsection{Theory}
+Watts-Strogatz graphs are a type of network that are constructed as follows: 
+\begin{itemize}
+    \item $N$ nodes are arranged on a ring
+    \item In the beginning all nodes are connected to their $k/2$ closest neighbours to both sides (every node has degree $k$)
+    \item Each edge is rewired with a probability of $p$ (no self-loops or duplicate edges allowed)
+\end{itemize}
+
+Independent of $p$, all graphs with the same $N$ and $k$ will have the same number of edges.
+However, these edges will be placed different depending on $p$ as a rewired edge can be placed anywhere and not only between nodes situated close to each other. 
+For small $p\ne0$ the rewiring will lead to a few long-range shortcuts. For $p=1$ all edges are rewired and we get a completely random graph. Below is a visualisation of the graph.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/WSgraph_visual.pdf}
+    \caption{A Watts-Strogatz graph with $N=30$, $k=6$ and $p=0.1$. The lines inside the circle are the random edges generated with a non-zero $p$.}
+    \label{fig:WScircleplot}
+\end{figure}
+
+\input{texfiles/degree_theory.tex}
+
+\input{texfiles/connected_theory.tex}
+
+\input{texfiles/diameter_ASPL_theory.tex}
+
+\input{texfiles/clustering_theory}
+

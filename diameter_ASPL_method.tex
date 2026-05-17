@@ -1,0 +1,5 @@
+\subsubsection{Diameter and average path length}
+
+The same Python package \texttt{NetworkX} has many useful functions. Once the Watts-Strogatz graph has been generated using the \texttt{nx.watts\_strogatz\_graph} function, the following functions are then used: \texttt{nx.diameter()} and \texttt{nx.average\_shortest\_path\_length()}. As the names of the functions indicate, the \texttt{nx.diameter()} returns the diameter (as defined in equation \ref{eq:WSdiameter}) and the latter function computes the average path length (as defined in equation \ref{eq:WSavgshortestpath}). In the case of an disconnected graph, the diameter and average path length would be computed for the largest connected component of the graph.
+
+The computations are repeated 1000 times for each value of $p$, with a new seed each times. For every iteration, a new graph is generated and the relevant values are saved in a \texttt{NumPy}-array. This will then be used to produce the results visible in section \ref{sec:WS_Diam&ASPL_result}.
