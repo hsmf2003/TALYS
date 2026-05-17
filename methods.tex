@@ -1,3 +1,68 @@
-\subsubsection{Connected components}
+\section{Methodology}
 
-To study the connected components of a Watts-Strogatz graph a pyton script \verb+WS_2_connected.py+ was written. It can be run using the command \verb+python3 WS_2_connected.py+. The script creates a Watts-Strogatz graphs with fixed parameters $N=200$ and $k=2$ and a variable parameter $p$ that is varied from $0.0$ to $1.0$. For each $p$ value 1000 separate instances of the graph are created. Then the code logs if the graph is fully connected or not.  For every instance the number of connected components and the size of the largest connected component is recorded. For disconnected graphs the distance quantities shortest path length, radius and diameter are also computed. These quantities are then averaged over the 1000 instances. Finally a graph is created for each quantity showing its relation to $p$. All the graphs are saved in the file \verb+WS_2_connected_plot.png+.
+In this work, TALYS simulations are compared to experimental energy spectra, and we evaluate the
+\emph{sensitivity} of the calculated spectra to model choices by identifying which settings provide the
+best agreement for each case. The following reactions are studied:
+\begin{itemize}
+    \item \textbf{Proton production:} $(n,px)$ on several targets (Si, Fe, Cr, V, Co), at incident neutron energies spanning
+    approximately 14--60~MeV depending on the dataset;
+    \item \textbf{Deuteron production:} $(n,dx)$ on Si for selected energies;
+    \item \textbf{Alpha production:} $(n,\alpha x)$ on Si for selected energies.
+\end{itemize}
+
+To investigate sensitivity to the modelling of the intermediate stage, four TALYS calculations were
+performed for each reaction case, corresponding to four pre-equilibrium configurations (\texttt{preeq1},
+\texttt{preeq2}, \texttt{preeq3} and \texttt{preeq4}), while keeping the other inputs fixed. This ensures that
+differences between \texttt{preeq1--preeq4} can be attributed primarily to the treatment of pre-equilibrium
+dynamics and its competition with compound emission. At intermediate incident energies, the outgoing
+light-ion spectrum is typically a superposition of direct/direct-like emission, pre-equilibrium emission,
+and compound-nucleus evaporation. \Cref{tab:preeq_settings} summarizes the four configurations used in this project.
+
+\begin{table}[ht]
+\centering
+\small
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{@{} l X  @{}}
+\toprule
+Configuration & Expected qualitative effect on spectra \\
+\midrule
+\texttt{preeq1} &
+Baseline option; primarily affects the shoulder and high-energy tail. \\
+
+\texttt{preeq2} &
+Reference configuration used for most EXFOR comparisons; sets the nominal pre-equilibrium strength and slope. \\
+
+\texttt{preeq3} &
+Modified pre-equilibrium dynamics, e.g.\ transition rates, exciton options, or angular systematics, which can change spectral hardness and overall normalisation. \\
+
+\texttt{preeq4} &
+Enhanced treatment, often including multiple pre-equilibrium emission and/or cluster-emission options; can increase yield at intermediate-to-high $E_{\mathrm{out}}$ and reshape d/$\alpha$ spectra. \\
+\bottomrule
+\end{tabularx}
+\caption{Definition of the four TALYS configurations used in this work.}
+\label{tab:preeq_settings}
+\end{table}
+
+In TALYS, pre-equilibrium emission for nucleon-induced reactions is commonly described within an
+exciton-model framework, in which the excited nucleus is represented by a particle--hole configuration.
+The exciton number
+\begin{equation}
+n = p + h,
+\label{eq:excitons}
+\end{equation}
+counts the number of excited particles $p$ above the Fermi surface and holes $h$ below it. Starting from
+an initial configuration produced by the first interaction(s), the system evolves through two-body
+residual interactions toward more complex configurations, meaning larger $n$, while emission competes with this
+equilibration process. As a result, pre-equilibrium emission tends to populate the intermediate-to-high
+outgoing-energy region of the spectra compared to compound evaporation.
+
+To satisfy the main objective of this project---comparing TALYS outgoing-particle spectra against EXFOR and identifying which experimental datasets and incident neutron energies are most informative for constraining TALYS predictions---a consistent comparison methodology was applied at each incident neutron energy and for each pre-equilibrium option (\texttt{preeqmode}=1--4). For every case, the four TALYS total spectra were compared with the EXFOR spectrum to assess the peak height and position, mid-energy shoulder behaviour, and the high-energy tail. In addition, the TALYS mechanism components were plotted together with EXFOR to identify how each component contributes to the overall spectrum.
+
+To complement this qualitative assessment with a quantitative criterion, TALYS totals were evaluated at the EXFOR outgoing-energy points by interpolation, and a point-by-point ratio was computed as
+\[
+R(E_{\mathrm{out}})=\frac{\mathrm{TALYS}(E_{\mathrm{out}})}{\mathrm{EXFOR}(E_{\mathrm{out}})}.
+\]
+The ratio plots highlight systematic biases, over- or underprediction, and make the magnitude of deviations easier to judge than the totals alone. Finally, based on the totals comparison and the ratio behaviour, a \texttt{best preeq mode} was selected for each case.
+
+The new figures used below contain, in a single diagnostic plot, the linear comparison of totals and EXFOR, the same comparison in logarithmic scale, the ratio plot for all pre-equilibrium modes, and the spectral-component decomposition for the selected mode.
