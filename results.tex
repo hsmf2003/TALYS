@@ -1,20 +1,19 @@
 \section{Results}
 
 The following figures show that the comparison between TALYS and EXFOR cannot be based only on the visual overlap near the main peak. In several proton-production cases, the four modes are quite close around that area, which makes this region less useful for choosing between them. The differences become clearer in the shoulder and in the high-energy tail. This is exactly where pre-equilibrium emission is expected to be more important, and therefore this region gives more information about the effect of changing \texttt{preeqmode}.
-The ratio plots are useful because they make these differences more visible. When the total spectra look similar, the ratio can still show whether one mode is systematically above or below the experimental data. The component plots also help to understand why different regions of the spectrum behave differently. 
+
+The ratio plots are useful because they make these differences more visible. When the total spectra look similar, the ratio can still show whether one mode is systematically above or below the experimental data. In this sense, the ratio plots help justify the choice of mode in a more objective way. The component plots also help to understand why different regions of the spectrum behave differently: the low outgoing-energy peak is usually more connected with the compound contribution, while the shoulder and high-energy tail are more affected by pre-equilibrium and, in some cases, direct-like or multiple pre-equilibrium contributions.
 
 \input{proton_results}
 \input{deuteron_results} % This file currently contains the deuteron results. Rename it to deuteron_results.tex if you prefer.
 \input{alpha_results}
 
-Table \ref{tab:summary_results} summarizes the obtained data and result interpretation. It shows that there is not one single pre-equilibrium mode that works best for all cases. One interesting pattern, however, is that proton production is generally reproduced more smoothly, while deuteron production shows larger discrepancies and a stronger sensitivity to the cut-off region.
-
-
+Table~\ref{tab:summary_results} summarizes the main results and their interpretation. It shows that there is not one single pre-equilibrium mode that works best for all cases. One interesting pattern, however, is that proton production is generally reproduced more smoothly, while deuteron production shows larger discrepancies and a stronger sensitivity to the high-energy tail. In several deuteron cases, TALYS falls to almost zero while EXFOR still reports non-zero values, which suggests that the fastest emitted deuterons are more difficult to reproduce with the tested configurations.
 
 \begin{table}[h!]
 \centering
 \small
-\begin{tabular}{p{3.1cm} p{2.4cm} p{2.3cm} p{3.6cm} p{4.0cm}}
+\begin{tabular}{p{2.8cm} p{1.9cm} p{2.0cm} p{3.4cm} p{3.7cm}}
 \hline
 \textbf{Reaction / dataset} & \textbf{Energies analysed} & \textbf{Best mode(s)} & \textbf{Main agreement} & \textbf{Main limitation} \\
 \hline
@@ -40,14 +39,14 @@ $^{56}$Fe(n,px), Slypen 22884.015
 $^{28}$Si(n,dx), Benck 22807.027 
 & 28.5--49 MeV 
 & Case-dependent, often preeq 3 
-& The general trend becomes better at higher incident energy, and the effective cut-off moves to higher outgoing energy. 
-& The spectra are less smooth than for protons, with sharp structures and an abrupt TALYS cut-off while EXFOR remains non-zero. \\
+& The general trend becomes better at higher incident energy, and the region of non-zero TALYS prediction extends to higher outgoing energy. 
+& The spectra are less smooth than for protons, with sharp structures and an abrupt high-energy drop while EXFOR remains non-zero. \\
 
 $^{28}$Si(n,dx), Bateman 13740.006 
 & 28--49 MeV 
 & preeq 4, 2, and 1 depending on $E_n$ 
 & The main part of the spectrum is better reproduced as $E_n$ increases. 
-& The choice of mode is mainly controlled by the shoulder and cut-off behaviour, not by the low-energy peak. \\
+& The choice of mode is mainly controlled by the shoulder and high-energy tail behaviour, not by the low-energy peak. \\
 
 $^{28}$Si(n,$\alpha$x), Benck 22807.041 
 & 61.5 MeV 
