@@ -11,7 +11,7 @@
     \label{fig:benck-en28p5-d-diagnostics}
 \end{figure}
 
-Compared to proton emission, the deuteron spectra are less smooth: the four \texttt{preeqmode} options separate not only in the tail but also through narrow structures in the mid-to-high outgoing-energy region. This behaviour is typical for composite-particle emission in TALYS, where direct-like contributions, and the underlying energy grid, can generate sharp peaks that are not necessarily visible in the experimental spectrum. Among the four options, \texttt{preeqmode} 3 provides the most reasonable overall compromise over the better-populated part of the experimental spectrum. The log-scale panel highlights a key issue: TALYS predicts an abrupt cut-off around $E_{\mathrm{out}}\approx 19$--20~MeV, while EXFOR reports non-zero values beyond that range.
+Compared to proton emission, the deuteron spectra are less smooth: the four \texttt{preeqmode} options separate not only in the tail but also through narrow structures in the mid-to-high outgoing-energy region. This behaviour is typical for composite-particle emission in TALYS, where direct-like contributions, and the underlying energy grid, can generate sharp peaks that are not necessarily visible in the experimental spectrum. Among the four options, \texttt{preeqmode} 3 provides the most reasonable overall compromise over the better-populated part of the experimental spectrum. The log-scale panel highlights a key issue: TALYS shows an abrupt high-energy drop around $E_{\mathrm{out}}\approx 19$--20~MeV, while EXFOR reports non-zero values beyond that range.
 
 This behaviour is confirmed by the ratio panel for the selected mode. After the first points, the ratio fluctuates around $R\simeq 1$ but shows a tendency to overpredict in the mid-energy region, before decreasing again. The most severe discrepancy is the collapse to $R\simeq 0$ above $E_{\mathrm{out}}\sim 19$ MeV: the TALYS total becomes essentially zero while EXFOR remains non-zero. For this incident energy, the model fails to reproduce the fastest deuterons. The components panel indicates that, beyond the compound contribution at low $E_{\mathrm{out}}$, the spectrum receives support from direct-like composite-particle mechanisms and pre-equilibrium emission in the shoulder region.
 
@@ -24,7 +24,7 @@ This behaviour is confirmed by the ratio panel for the selected mode. After the 
     \label{fig:benck-en41-d-diagnostics}
 \end{figure}
 
-Now with a more selective choice of figures, analysing \cref{fig:benck-en41-d-diagnostics} shows an improvement of the simulation. Although the totals still show a hectic behaviour, the changes are not as sharp, and the EXFOR values follow the simulated shape more coherently. As for a more numerical and objective view, the ratio panel still shows that $R$ is around the same magnitude as before, but its decrease is not as sharp and $R\simeq 0$ is only reached above approximately $E_{\mathrm{out}}\sim 30$ MeV.
+Now with a more selective choice of figures, analysing \cref{fig:benck-en41-d-diagnostics} shows an improvement of the simulation. Although the totals still show a hectic behaviour, the changes are not as sharp, and the EXFOR values follow the simulated shape more coherently. As for a more numerical and objective view, the ratio panel still shows that $R$ is around the same magnitude as before, but its decrease is not as sharp and $R\simeq 0$ is only reached above approximately $E_{\mathrm{out}}\sim 30$ MeV. This means that, compared with the lower incoming energy, the region where TALYS falls to almost zero is shifted to higher outgoing energy.
 
 \Epar{$E_n=49.0$ MeV}
 
@@ -35,8 +35,46 @@ Now with a more selective choice of figures, analysing \cref{fig:benck-en41-d-di
     \label{fig:benck-en49-d-diagnostics}
 \end{figure}
 
-With the increase in incoming energy, the approximation of the simulated data to the experimental data becomes more evident. Although the totals still show large errors and sizeable error bars, the overlay between the two datasets improves. Alongside this, one can notice in the ratio panel of \cref{fig:benck-en49-d-diagnostics} that $R$ reaches zero later, around $E_{\mathrm{out}}\sim 39$ MeV. However, the magnitude of the ratio also increases alongside the rise of the incoming energy.
+With the increase in incoming energy, the approximation of the simulated data to the experimental data becomes more evident. Although the totals still show large errors and sizeable error bars, the overlay between the two datasets improves. Alongside this, one can notice in the ratio panel of \cref{fig:benck-en49-d-diagnostics} that $R$ reaches zero later, around $E_{\mathrm{out}}\sim 39$ MeV. However, the magnitude of the ratio also increases alongside the rise of the incoming energy. This shows that the high-energy end is still problematic, even if TALYS remains non-zero over a larger outgoing-energy range.
 
+\subsubsection*{\ce{^{28}Si}, Bateman, 13740.006}
+
+Following the same reasoning as before, this dataset was simulated for
+$E_n=\{28.0,\,33.0,\,41.0,\,49.0\}\,\mathrm{MeV}$. To keep the report concise and avoid repetition, only
+$E_n=\{28.0,\,41.0,\,49.0\}\,\mathrm{MeV}$ are discussed here; the remaining energy is included in Appendix~A.
+
+\Epar{$E_n=28.0$ MeV}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/EN28.0_00_2x2_diagnostics_28Si_nd_Bateman_13740_006.png}
+    \caption{Diagnostic comparison for deuteron production from \ce{^{28}Si}, Bateman dataset 13740.006, at $E_n=28.0$ MeV.}
+    \label{fig:bateman-en28-d-diagnostics}
+\end{figure}
+
+Observing \cref{fig:bateman-en28-d-diagnostics}, this deuteron spectrum is once again clearly less smooth than the proton production cases. The \texttt{preeqmode} curves separate not only in the tail but also through sharp structures in the mid-to-high $E_{\mathrm{out}}$ region. In practice, the mode choice is driven mainly by the overall EXFOR trend before TALYS starts falling abruptly to almost zero. The selected mode, \texttt{preeqmode}=4, shows that after the first point, which is the most discrepant one, $R$ stays closer to 1 through most of the better-populated region, but then deviates near the last non-zero points and finally collapses to $R\simeq 0$ once TALYS goes to almost zero while EXFOR remains non-zero. For $E_n=28$ MeV, the high-energy end is therefore the main limitation.
+
+\Epar{$E_n=41.0$ MeV}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/EN41.0_00_2x2_diagnostics_28Si_nd_Bateman_13740_006.png}
+    \caption{Diagnostic comparison for deuteron production from \ce{^{28}Si}, Bateman dataset 13740.006, at $E_n=41.0$ MeV.}
+    \label{fig:bateman-en41-d-diagnostics}
+\end{figure}
+
+At $E_n=41.0$ MeV, the overall overlay improves, even if the totals still show a somewhat hectic behaviour in the shoulder region. For the selected mode, \texttt{preeqmode}=2, the trend is clearer in the ratio panel. $R$ starts close to 1 at lower $E_{\mathrm{out}}$, then increases, indicating overprediction in the mid-energy region, and finally decreases until it approaches $R\simeq 0$ above $E_{\mathrm{out}}\sim 30$ MeV. Therefore, for this energy, the shoulder and the high-energy end remain the most sensitive parts for mode discrimination.
+
+\Epar{$E_n=49.0$ MeV}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/EN49.0_00_2x2_diagnostics_28Si_nd_Bateman_13740_006.png}
+    \caption{Diagnostic comparison for deuteron production from \ce{^{28}Si}, Bateman dataset 13740.006, at $E_n=49.0$ MeV.}
+    \label{fig:bateman-en49-d-diagnostics}
+\end{figure}
+
+With the increase to $E_n=49.0$ MeV, the overlap between TALYS and EXFOR becomes slightly more evident across the main part of the spectrum. Now one can see two minima despite the large error bars and remaining narrow structures. The selected mode shifts to \texttt{preeqmode}=1, and the ratio panel shows why. For most of the measured interval the ratio fluctuates closer to $R\simeq 1$, while a large peak is reached with a magnitude above 3. As for the lower energies, the ratio eventually drops and reaches $R\simeq 0$, but only at higher $E_{\mathrm{out}}$ than before, meaning that the region where TALYS falls to almost zero is pushed to the right as $E_n$ increases. Overall, for Bateman (13740.006), the mode choice is controlled mainly by the shoulder and high-energy-tail behaviour rather than by the low-energy peak.
 \subsubsection*{\ce{^{28}Si}, Bateman, 13740.006}
 
 Following the same reasoning as before, this dataset was simulated for
