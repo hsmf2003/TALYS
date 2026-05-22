@@ -146,27 +146,6 @@
 \renewcommand\thelinenumber{\arabic{linenumber}}
 \setlength\linenumbersep{12pt}
 
-% =========================
-% PAGE DECORATION
-% =========================
-\usepackage{eso-pic}
-\AddToShipoutPicture{%
-  \ifnum\value{page}=1
-    \AtPageLowerLeft{%
-      \raisebox{2.54cm}{%
-        \hspace*{3.55cm}\rule{0.5pt}{\textheight}
-        \hspace*{15.26cm}\rule{0.5pt}{\textheight}
-      }%
-    }%
-  \fi
-  \ifnum\value{page}>1
-    \AtPageLowerLeft{%
-      \raisebox{2.54cm}{%
-        \hspace*{3.55cm}\rule{0.5pt}{\textheight}
-      }%
-    }%
-  \fi
-}
 
 % =========================
 % THEOREMS
