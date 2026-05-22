@@ -4,3 +4,55 @@
 \input{deuteron_results} % This file currently contains the deuteron results. Rename it to deuteron_results.tex if you prefer.
 \input{alpha_results}
 
+Table \ref{tab:summary_results} summarizes the obtained data and result interpretation,
+
+
+\begin{table}[h!]
+\centering
+\small
+\begin{tabular}{p{3.1cm} p{2.4cm} p{2.3cm} p{3.6cm} p{4.0cm}}
+\hline
+\textbf{Reaction / dataset} & \textbf{Energies analysed} & \textbf{Best mode(s)} & \textbf{Main agreement} & \textbf{Main limitation} \\
+\hline
+
+$^{28}$Si(n,px), Benck 22807.012 
+& 28--50 MeV 
+& Mainly preeq 1--2 
+& The peak and the main part of the spectrum are reasonably reproduced. Modes 1 and 2 usually overlap more with EXFOR. 
+& The high-energy tail remains the most sensitive region, and the best choice is not always straightforward. \\
+
+$^{28}$Si(n,px), Bateman 13740.005 
+& 28--50 MeV 
+& Mainly preeq 1--2 
+& The agreement improves with increasing incident energy, and the ratio stays closer to 1 over a larger part of the measured range. 
+& The mode choice is controlled more by the shoulder and tail than by the peak, where the modes are often very close. \\
+
+$^{56}$Fe(n,px), Slypen 22884.015 
+& 28.5--62.7 MeV 
+& Case-dependent, mostly preeq 1--2 
+& TALYS reproduces the order of magnitude of the EXFOR data and gives a reasonable description of the peak region. 
+& The shoulder and high-energy tail are still difficult to reproduce exactly, with visible differences between modes. \\
+
+$^{28}$Si(n,dx), Benck 22807.027 
+& 28.5--49 MeV 
+& Case-dependent, often preeq 3 
+& The general trend becomes better at higher incident energy, and the effective cut-off moves to higher outgoing energy. 
+& The spectra are less smooth than for protons, with sharp structures and an abrupt TALYS cut-off while EXFOR remains non-zero. \\
+
+$^{28}$Si(n,dx), Bateman 13740.006 
+& 28--49 MeV 
+& preeq 4, 2, and 1 depending on $E_n$ 
+& The main part of the spectrum is better reproduced as $E_n$ increases. 
+& The choice of mode is mainly controlled by the shoulder and cut-off behaviour, not by the low-energy peak. \\
+
+$^{28}$Si(n,$\alpha$x), Benck 22807.041 
+& 61.5 MeV 
+& preeq 1 
+& The selected mode gives the correct order of magnitude in the measured region. 
+& The low-energy evaporation peak is not constrained by EXFOR, and the high-energy tail drops too sharply. \\
+
+\hline
+\end{tabular}
+\caption{Summary of the main TALYS--EXFOR comparisons and best-performing pre-equilibrium modes.}
+\label{tab:summary_results}
+\end{table}
