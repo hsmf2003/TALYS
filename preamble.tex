@@ -1,14 +1,26 @@
+% =========================
+% LANGUAGE / ENCODING / PAGE
+% =========================
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[margin=2.5cm]{geometry}
 
-% Math + symbols
-\usepackage{mathtools}
-\usepackage{amssymb}
+% =========================
+% MATH + SYMBOLS
+% =========================
 \usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{bm}
 \usepackage{mhchem}
+\usepackage{cancel}
 
+\numberwithin{equation}{section}
+
+% =========================
+% FIGURES + TABLES
+% =========================
 \newif\ifdraftfigs
 \draftfigsfalse % keep FALSE to show figures; switch to TRUE only for draft placeholders
 
@@ -16,92 +28,58 @@
   \PassOptionsToPackage{draft}{graphicx}
 \fi
 
-% Figures + tables
 \usepackage{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
+\setkeys{Gin}{width=\linewidth}
+
 \usepackage{float}
 \usepackage{booktabs}
 \usepackage{tabularx}
 
-% Units etc.
+\usepackage[
+  labelsep=period,
+  figurename=Figure,
+  tablename=Table,
+  labelfont=bf
+]{caption}
+\usepackage{subcaption}
+
+% =========================
+% UNITS
+% =========================
 \usepackage{siunitx}
 \usepackage{gensymb}
 \sisetup{locale=DE}
 
-% Formatting
+% =========================
+% FORMATTING
+% =========================
 \usepackage{setspace}
 \usepackage{indentfirst}
-\usepackage{xcolor}
+\usepackage[x11names]{xcolor}
 \usepackage{wasysym}
 \onehalfspacing
 
-% Appendix + ToC extras
+% =========================
+% APPENDIX + TOC EXTRAS
+% =========================
 \usepackage[toc,page]{appendix}
 \usepackage[nottoc]{tocbibind}
 
-% Bibliography
+% =========================
+% BIBLIOGRAPHY
+% =========================
 \usepackage{natbib}
 
-% Prevent orphan headings
+% =========================
+% PREVENT ORPHAN HEADINGS
+% =========================
 \usepackage{needspace}
-
-% Hyperlinks
-\usepackage[hidelinks]{hyperref}
-\usepackage[nameinlink,capitalise,noabbrev]{cleveref}
-\crefname{figure}{Fig.}{Figs.}
-\crefname{subfigure}{Fig.}{Figs.}
 
 % Helper: keeps \paragraph with what follows
 \newcommand{\Epar}[1]{%
   \Needspace{0.25\textheight}%
   \paragraph{#1}\mbox{}\par\smallskip
 }
-
-\hyphenation{EXCEL MATLAB världens-längsta-ord}
-
-\def\bblend{uppl.}
-
-\title{\textbf{TALYS -- Project}\vspace{1cm}}
-\author{Helena Fernandes\\[1cm]\emph{Department of Physics}}
-\date{\today}
-% =========================
-% CORE MATH PACKAGES
-% =========================
-\usepackage{amsmath,amsthm} % amssymb/amsfonts superseded by unicode-math in LuaLaTeX
-\usepackage{bm}
-
-% Graphs
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta, positioning, calc}
-\usepackage{siunitx}
-
-% =========================
-% GRAPHICS / FIGURES
-% =========================
-\usepackage{graphicx}
-\setkeys{Gin}{width=\linewidth}
-\usepackage{float}
-
-\usepackage[labelsep=period,
-  figurename=Figure,
-  tablename=Table,
-  labelfont=bf]{caption}
-\usepackage{subcaption}
-
-\newfloat{listing}{htbp}{lol}
-\floatname{listing}{Listing}
-% =========================
-% COLORS / BOXES
-% =========================
-\usepackage[x11names]{xcolor}
-\usepackage[most]{tcolorbox}
-\usepackage{cancel}
-
-% =========================
-% ENUMERATION
-% =========================
-\usepackage{enumitem}
 
 % =========================
 % HEADERS / FOOTERS
@@ -110,6 +88,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[R]{\nouppercase{\rightmark}}
+\fancyfoot[C]{\thepage}
 
 \makeatletter
 \renewcommand{\sectionmark}[1]{%
@@ -120,11 +99,13 @@
 }
 \makeatother
 
-
+% =========================
+% HYPERLINKS
+% Load hyperref near the end, and cleveref after hyperref
+% =========================
 \usepackage{hyperref}
 \usepackage{bookmark}
-\usepackage{cleveref}
-\usepackage{theoremref}
+\usepackage[nameinlink,capitalise,noabbrev]{cleveref}
 
 \hypersetup{
   colorlinks=true,
@@ -133,67 +114,14 @@
   urlcolor=blue
 }
 
-% =========================
-% EQUATIONS
-% =========================
-\numberwithin{equation}{section}
+\crefname{figure}{Fig.}{Figs.}
+\crefname{subfigure}{Fig.}{Figs.}
+\crefname{table}{Table}{Tables}
+\crefname{section}{Section}{Sections}
 
 % =========================
-% LINE NUMBERS
+% TITLE
 % =========================
-\usepackage{lineno}
-\renewcommand\linenumberfont{\normalfont\scriptsize\color{black}}
-\renewcommand\thelinenumber{\arabic{linenumber}}
-\setlength\linenumbersep{12pt}
-
-
-% =========================
-% THEOREMS
-% =========================
-\newtheoremstyle{nonitalic}
-  {3pt}{3pt}
-  {}{}{\bfseries}{.}{ }%
-  {\thmname{#1}\thmnumber{ #2}\thmnote{ (\textnormal{#3})}}
-
-\theoremstyle{nonitalic}
-
-\newtheorem{Definition}{Definition}[section]
-\newtheorem{Problem}{Problem}[section]
-\newtheorem{Anmärkning}{Anmärkning}[section]
-\newtheorem{Sats}{Sats}[section]
-\newtheorem{Bevis}{Bevis}[section]
-
-\crefname{Definition}{Definition}{Definitioner}
-\crefname{Problem}{Problem}{Problems}
-\crefname{Anmärkning}{Anmärkning}{Anmärkningar}
-\crefname{Sats}{Sats}{Satser}
-\crefname{Bevis}{Bevis}{Bevis}
-
-% =========================
-% TCB STYLES
-% =========================
-\tcbset{
-style1/.style={colback=gray!5!white, colframe=gray!50!black},
-style2/.style={colback=teal!10!white, colframe=teal!80!black},
-style3/.style={colback=yellow!10!white, colframe=black},
-style4/.style={colback=blue!3!white, colframe=black},
-style5/.style={colback=purple!5!white, colframe=purple!70!black},
-style6/.style={colback=red!5!white, colframe=red!80!black}
-}
-
-\newtcolorbox[auto counter, number within=section]{definitionbox}[2][]{%
-  enhanced,
-  style1,
-  fonttitle=\bfseries,
-  title=Definition \thetcbcounter\ – #2,
-  #1
-}
-
-\newtcolorbox[auto counter, number within=section]{satsbox}[2][]{%
-  enhanced,
-  style2,
-  fonttitle=\bfseries,
-  title=Sats \thetcbcounter\ – #2,
-  #1
-}
-
+\title{\textbf{TALYS -- Project}\vspace{1cm}}
+\author{Helena Fernandes\\[1cm]\emph{Department of Physics}}
+\date{\today}
