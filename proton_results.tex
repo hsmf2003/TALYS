@@ -2,200 +2,120 @@
 
 \subsubsection*{\ce{^{28}Si}, Benck, 22807.012}
 
-For this dataset, TALYS simulations were analysed in the incident-energy interval $E_n \in [28.0,50.0]\,\mathrm{MeV}$. The same comparison methodology was applied at each energy and for each pre-equilibrium option (\texttt{preeqmode}=1--4). Following the procedure described above, the following study was conducted.
+For this dataset, TALYS simulations were analysed in the incident-energy interval
+$E_n \in [28.0,50.0]\,\mathrm{MeV}$. The same comparison methodology was applied at each incident energy and for each pre-equilibrium option, \texttt{preeqmode}=1--4.
 
 \Epar{$E_n=28.0$ MeV}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Images/EN28.0_00_2x2_diagnostics_28Si_np_Benck_22807_012.png}
-    \caption{Diagnostic comparison for proton production from \ce{^{28}Si}, Benck dataset 22807.012, at $E_n=28.0$ MeV.}
+    \caption{Outgoing-proton energy spectrum for neutron-induced proton production on \ce{^{28}Si}, compared with TALYS predictions for the Benck EXFOR dataset 22807.012 at $E_n=28.0$ MeV. The top panels show the comparison between the TALYS calculated energy-differential cross sections and the EXFOR data using a linear vertical scale (left) and a logarithmic vertical scale (right). The bottom-left panel shows the ratio between each TALYS calculation and the EXFOR data. The bottom-right panel shows the reaction-mechanism decomposition and the total predicted spectrum for the selected pre-equilibrium mode, \texttt{preeqmode=1}.}
     \label{fig:benck-en28-p-diagnostics}
 \end{figure}
 
-Observing \cref{fig:benck-en28-p-diagnostics}, one can see that the best approximation to the EXFOR data is given mainly by \texttt{preeqmode} 1 or 2, as they overlap the most with the experimental points. However, it is not straightforward to decide between them for one striking reason: the EXFOR data only starts at an outgoing energy of about $5$ MeV, which is not surprising given its experimental nature and the use of detectors that are harder to work with at lower energies. This means that the low-$E_{\mathrm{out}}$ peak is not fully constrained by the experimental points. Looking at the same comparison with a logarithmic $y$-axis helps to visualise the tail behaviour, but differences appear mainly where the cross section becomes very small, or where EXFOR has no points, which should be taken with a grain of salt.
+As shown in \cref{fig:benck-en28-p-diagnostics}, the best agreement with the EXFOR data is obtained mainly with \texttt{preeqmode=1} and \texttt{preeqmode=2}. These two modes reproduce the measured part of the spectrum more closely than modes 3 and 4. However, the distinction between modes 1 and 2 is not straightforward because the EXFOR data start at an outgoing energy of about $5$ MeV. As a result, the low-$E_{\mathrm{out}}$ evaporation peak is not fully constrained by experimental points.
 
-The ratio panel is useful because it compares the four modes more directly. Modes 1 and 2 remain the closest to $R\simeq 1$ over the better-populated part of the experimental spectrum, while the other modes show larger deviations in some parts of the measured range. In particular, the deviations are smaller in the mid-energy region, whereas larger excursions appear closer to the edges of the measured range. The components panel indicates that the low-$E_{\mathrm{out}}$ peak is dominated by the compound contribution, while pre-equilibrium mainly supports the shoulder and the tail. Therefore, for this energy, modes 1 and 2 give the best overall compromise.
-
-\Epar{$E_n=40.0$ MeV}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{Images/EN40.0_00_2x2_diagnostics_28Si_np_Benck_22807_012.png}
-    \caption{Diagnostic comparison for proton production from \ce{^{28}Si}, Benck dataset 22807.012, at $E_n=40.0$ MeV.}
-    \label{fig:benck-en40-p-diagnostics}
-\end{figure}
-
-In \cref{fig:benck-en40-p-diagnostics}, one is once again torn between modes 1 and 2, since they overlap most of the experimental spectrum, while modes 3 and 4 deviate more visibly in the shoulder/tail. The main qualitative difference observed between the remaining modes is that mode 4 tends to provide the largest cross section, especially around the peak/shoulder region. The logarithmic view is again important to inspect the tail, where the curves can separate even when the linear plot makes them look similar.
-
-Comparing the calculated ratios, \texttt{preeqmode} 1 stands out as the most stable configuration for this dataset, even if it still shows a non-negligible error magnitude in some regions. The ratio tends to stay closer to 1 at lower and intermediate outgoing energies, and then progressively deviates as $E_{\mathrm{out}}$ increases, which suggests that the tail is the most sensitive part of the spectrum at this incident energy. The components panel supports this view by showing a stronger role of pre-equilibrium in the shoulder and tail compared with the lowest $E_{\mathrm{out}}$ region, which remains dominated by the compound component. Therefore, the mode choice here is not controlled only by the peak, but mainly by the behaviour in the shoulder and high-energy tail.
-
-\Epar{$E_n=50.0$ MeV}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{Images/EN50.0_00_2x2_diagnostics_28Si_np_Benck_22807_012.png}
-    \caption{Diagnostic comparison for proton production from \ce{^{28}Si}, Benck dataset 22807.012, at $E_n=50.0$ MeV.}
-    \label{fig:benck-en50-p-diagnostics}
-\end{figure}
-
-The same thought process is once again repeated. Modes 1 and 2 remain the closest to the experimental points in the main part of the spectrum, while the log-scale panel becomes especially useful to check whether the tail is too soft or too hard. At this energy, the outgoing-energy distribution extends further, and therefore the high-$E_{\mathrm{out}}$ region becomes increasingly important for distinguishing between modes.
-
-The ratio and component panels confirm the overall behaviour seen at lower energies: the compound component dominates the low-$E_{\mathrm{out}}$ peak, while pre-equilibrium provides the main support to the shoulder and the tail. The remaining discrepancies are more visible towards the high-$E_{\mathrm{out}}$ end of the spectrum, indicating that this is the region where the model choice matters the most for this dataset. In this case, the high-energy tail should be read carefully because the TALYS values become very small near the end of the spectrum, while the most relevant comparison is still the region where EXFOR provides points.
-
-\subsubsection*{\ce{^{28}Si}, Bateman, 13740.005}
-
-EXFOR provides incident energies in the interval $E_n\in[4,51]\,\mathrm{MeV}$. To facilitate comparison with the Benck dataset, we restrict the TALYS calculations to
-$E_n=\{28.0,\,30.0,\,35.0,\,40.0,\,45.0,\,50.0\}\,\mathrm{MeV}$.
-To keep the report concise and avoid repetition, only $E_n=28.0$, 40.0, and 50.0~MeV are shown here; the remaining incident energies follow the same reasoning and are provided in Appendix~A.
-
-\Epar{$E_n=28.0$ MeV}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{Images/EN28.0_00_2x2_diagnostics_28Si_np_Bateman_13740_005.png}
-    \caption{Diagnostic comparison for proton production from \ce{^{28}Si}, Bateman dataset 13740.005, at $E_n=28.0$ MeV.}
-    \label{fig:bateman-en28-p-diagnostics}
-\end{figure}
-
-Observing the totals comparison in \cref{fig:bateman-en28-p-diagnostics}, the four modes are close in the peak region, while differences become clearer in the shoulder and tail. This makes the peak less useful for deciding between modes, because the curves overlap strongly there. The ratio panel shows that after the first points, which have larger uncertainties, the ratio remains reasonably close to $R\simeq 1$ across most of the measured outgoing-energy range, with the largest deviations concentrated at the highest $E_{\mathrm{out}}$ values. The component panel confirms the same physical picture as before: the lower-energy part is mostly connected with compound emission, while the shoulder and tail are more affected by pre-equilibrium contributions.
-
-\Epar{$E_n=40.0$ MeV}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{Images/EN40.0_00_2x2_diagnostics_28Si_np_Bateman_13740_005.png}
-    \caption{Diagnostic comparison for proton production from \ce{^{28}Si}, Bateman dataset 13740.005, at $E_n=40.0$ MeV.}
-    \label{fig:bateman-en40-p-diagnostics}
-\end{figure}
-
-At $E_n=40.0$ MeV, the totals overlap strongly near the peak and separate more in the shoulder and tail, which allows us to rule out pre-equilibrium modes 3 and 4. For the selected mode, the ratio starts at a relatively high value at low outgoing energies and then settles closer to 1; deviations grow again toward higher $E_{\mathrm{out}}$, indicating that the tail is the most discriminating region. This also shows why the ratio panel is important: in the linear plot the modes can look similar, but the ratio makes the systematic overprediction or underprediction easier to see.
-
-\Epar{$E_n=50.0$ MeV}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{Images/EN50.0_00_2x2_diagnostics_28Si_np_Bateman_13740_005.png}
-    \caption{Diagnostic comparison for proton production from \ce{^{28}Si}, Bateman dataset 13740.005, at $E_n=50.0$ MeV.}
-    \label{fig:bateman-en50-p-diagnostics}
-\end{figure}
-
-At $E_n=50.0$ MeV, the same overall pattern is observed. Overall, the agreement improves with increasing incident energy $E_n$: in this case the ratio remains closer to 1 up to about $E_{\mathrm{out}}\approx 30$ MeV. For Bateman (13740.005), the mode selection is driven less by the peak region, where the totals often overlap, and more by the shoulder/tail behaviour, which is consistently highlighted by the ratio plots across the analysed incident energies. The high-energy end still shows larger deviations, but the main part of the measured spectrum is reproduced more coherently than at lower incident energies.
-
-\subsubsection*{\ce{^{56}Fe}, Slypen, 22884.015}
-
-The Slypen dataset provides an additional proton-production comparison for iron. The same diagnostic representation is used here, allowing the total spectra, ratio behaviour, and model-component decomposition to be assessed in a single figure for each incident energy.
-
-\Epar{$E_n=28.5$ MeV}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{Images/EN28.5_00_2x2_diagnostics_56Fe_np_Slypen_22884_015.png}
-    \caption{Diagnostic comparison for proton production from \ce{^{56}Fe}, Slypen dataset 22884.015, at $E_n=28.5$ MeV.}
-    \label{fig:slypen-en28p5-p-diagnostics}
-\end{figure}
-
-As shown in \cref{fig:slypen-en28p5-p-diagnostics}, the main peak is reasonably well reproduced by the TALYS totals, although the different pre-equilibrium modes lead to visible differences in both peak height and shoulder behaviour. The ratio panel indicates that the selected mode gives the best compromise over the measured range, while the high-energy tail remains difficult to reproduce exactly. The component decomposition shows that the low-energy peak receives a strong compound contribution, while the shoulder and tail are mainly constrained by pre-equilibrium emission. This confirms again that the peak alone is not enough to judge the quality of the mode, since the tail carries important information about the pre-equilibrium contribution.
-
-\Epar{$E_n=34.5$ MeV}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{Images/EN34.5_00_2x2_diagnostics_56Fe_np_Slypen_22884_015.png}
-    \caption{Diagnostic comparison for proton production from \ce{^{56}Fe}, Slypen dataset 22884.015, at $E_n=34.5$ MeV.}
-    \label{fig:slypen-en34p5-p-diagnostics}
-\end{figure}
-
-At $E_n=34.5$ MeV, the same general behaviour is observed. The TALYS curves reproduce the order of magnitude of the EXFOR data, but the ratio panel shows that the agreement varies across the outgoing-energy range. In particular, the shoulder and high-energy tail remain the most informative regions for distinguishing between pre-equilibrium modes. The component plot supports this interpretation, since the compound contribution is more important at low outgoing energy, while pre-equilibrium emission becomes more relevant as $E_{\mathrm{out}}$ increases. The remaining Slypen incident energies are shown in Appendix~A.
-The ratio panel shows that the selected mode reproduces the bulk of the spectrum with relatively small deviations around $R\simeq 1$, while making it easier to identify where the simulation over- or underpredicts the data. In particular, the deviations are smaller in the mid-energy region, whereas larger excursions appear closer to the edges of the measured range. The components panel indicates that the low-$E_{\mathrm{out}}$ peak is dominated by the compound contribution, while pre-equilibrium mainly supports the shoulder and the tail.
+The logarithmic panel is useful for examining the high-energy tail, but this region must be interpreted carefully when the calculated cross sections become very small or when there are few EXFOR points. The ratio panel provides a clearer comparison between the four modes. Modes 1 and 2 remain closest to $R\simeq 1$ over the better-populated part of the experimental spectrum, whereas modes 3 and 4 show larger deviations. The component decomposition shows that the low-$E_{\mathrm{out}}$ peak is dominated by the compound contribution, while the shoulder and tail are more affected by pre-equilibrium emission. Therefore, for this incident energy, modes 1 and 2 provide the best overall compromise, with \texttt{preeqmode=1} selected for the decomposition panel.
 
 \Epar{$E_n=40.0$ MeV}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Images/EN40.0_00_2x2_diagnostics_28Si_np_Benck_22807_012.png}
-    \caption{Diagnostic comparison for proton production from \ce{^{28}Si}, Benck dataset 22807.012, at $E_n=40.0$ MeV.}
+    \caption{Same diagnostic panels as in \cref{fig:benck-en28-p-diagnostics}, but for proton production on \ce{^{28}Si} using the Benck EXFOR dataset 22807.012 at $E_n=40.0$ MeV. The decomposition panel corresponds to the selected mode, \texttt{preeqmode=1}.}
     \label{fig:benck-en40-p-diagnostics}
 \end{figure}
 
-In \cref{fig:benck-en40-p-diagnostics}, one is once again torn between modes 1 and 2, since they overlap most of the experimental spectrum, while modes 3 and 4 deviate more visibly in the shoulder/tail. The main qualitative difference observed between the remaining modes is that mode 4 tends to provide the largest cross section, especially around the peak/shoulder region. The logarithmic view is again important to inspect the tail, where the curves can separate even when the linear plot makes them look similar.
+At $E_n=40.0$ MeV, shown in \cref{fig:benck-en40-p-diagnostics}, modes 1 and 2 again provide the closest description of the experimental spectrum. Modes 3 and 4 deviate more clearly, especially in the shoulder and high-energy tail. Mode 4 gives the largest calculated cross section in part of the peak and shoulder region, leading to a stronger overprediction.
 
-Comparing the calculated ratios, preeq mode 1 stands out as the most stable configuration for this dataset, even if it still shows a non-negligible error magnitude in some regions. The ratio tends to stay closer to 1 at lower and intermediate outgoing energies, and then progressively deviates as $E_{\mathrm{out}}$ increases, which suggests that the tail is the most sensitive part of the spectrum at this incident energy. The components panel supports this view by showing a stronger role of pre-equilibrium in the shoulder and tail compared with the lowest $E_{\mathrm{out}}$ region, which remains dominated by the compound component.
+The ratio plot indicates that \texttt{preeqmode=1} gives the most stable agreement for this dataset. Although deviations from $R=1$ are still present, mode 1 remains closer to the experimental data over much of the lower and intermediate outgoing-energy range. The deviations increase toward higher $E_{\mathrm{out}}$, showing that the tail is the most sensitive region for distinguishing between pre-equilibrium modes. This behaviour is consistent with the component panel, where the compound contribution dominates the low-energy peak, while pre-equilibrium emission becomes more important in the shoulder and tail. Thus, the mode choice is not determined mainly by the peak, but by the behaviour above the evaporation region.
 
 \Epar{$E_n=50.0$ MeV}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Images/EN50.0_00_2x2_diagnostics_28Si_np_Benck_22807_012.png}
-    \caption{Diagnostic comparison for proton production from \ce{^{28}Si}, Benck dataset 22807.012, at $E_n=50.0$ MeV.}
+    \caption{Same diagnostic panels as in \cref{fig:benck-en28-p-diagnostics}, but for proton production on \ce{^{28}Si} using the Benck EXFOR dataset 22807.012 at $E_n=50.0$ MeV. The decomposition panel corresponds to the selected mode, \texttt{preeqmode=1}.}
     \label{fig:benck-en50-p-diagnostics}
 \end{figure}
 
-The same thought process is once again repeated. Modes 1 and 2 remain the closest to the experimental points in the main part of the spectrum, while the log-scale panel becomes especially useful to check whether the tail is too soft or too hard and where the effective cut-off appears. At this energy, the outgoing-energy distribution extends further, and therefore the high-$E_{\mathrm{out}}$ region becomes increasingly important for distinguishing between modes.
+At $E_n=50.0$ MeV, shown in \cref{fig:benck-en50-p-diagnostics}, the same general trend is observed. Modes 1 and 2 remain the closest to the experimental points in the main measured region of the spectrum, while the logarithmic panel is particularly useful for inspecting the high-energy tail. Since the outgoing-energy range extends further at this incident energy, the high-$E_{\mathrm{out}}$ region becomes increasingly important for distinguishing between model options.
 
-The ratio and component panels confirm the overall behaviour seen at lower energies: the compound component dominates the low-$E_{\mathrm{out}}$ peak, while pre-equilibrium provides the main support to the shoulder and the tail. The remaining discrepancies are more visible towards the high-$E_{\mathrm{out}}$ end of the spectrum, indicating that this is the region where the model choice matters the most for this dataset.
+The ratio and component panels confirm the interpretation obtained at lower incident energies. The compound contribution dominates the low-$E_{\mathrm{out}}$ peak, while pre-equilibrium emission provides the main contribution to the shoulder and tail. The largest discrepancies appear toward the high-energy end of the spectrum, indicating that this region is the most sensitive to the pre-equilibrium model. In this case, the tail should also be read carefully because the TALYS values become very small near the end of the spectrum, while the most relevant comparison remains the region where EXFOR provides measured points.
 
 \subsubsection*{\ce{^{28}Si}, Bateman, 13740.005}
 
-EXFOR provides incident energies in the interval $E_n\in[4,51]\,\mathrm{MeV}$. To facilitate comparison with the Benck dataset, we restrict the TALYS calculations to
+EXFOR provides incident energies in the interval $E_n\in[4,51]\,\mathrm{MeV}$. To facilitate comparison with the Benck dataset, the TALYS calculations were restricted to
 $E_n=\{28.0,\,30.0,\,35.0,\,40.0,\,45.0,\,50.0\}\,\mathrm{MeV}$.
-To keep the report concise and avoid repetition, only $E_n=28.0$, 40.0, and 50.0~MeV are shown here; the remaining incident energies follow the same reasoning and are provided in Appendix~A.
+To keep the report concise and avoid repetition, only $E_n=28.0$, 40.0, and 50.0~MeV are shown here; the remaining incident energies are provided in Appendix~A.
 
 \Epar{$E_n=28.0$ MeV}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Images/EN28.0_00_2x2_diagnostics_28Si_np_Bateman_13740_005.png}
-    \caption{Diagnostic comparison for proton production from \ce{^{28}Si}, Bateman dataset 13740.005, at $E_n=28.0$ MeV.}
+    \caption{Same diagnostic panels as in \cref{fig:benck-en28-p-diagnostics}, but for proton production on \ce{^{28}Si} using the Bateman EXFOR dataset 13740.005 at $E_n=28.0$ MeV. The decomposition panel corresponds to the selected mode, \texttt{preeqmode=2}.}
     \label{fig:bateman-en28-p-diagnostics}
 \end{figure}
 
-Observing the totals comparison in \cref{fig:bateman-en28-p-diagnostics}, the four modes are close in the peak region, while differences become clearer in the shoulder and tail. The ratio panel shows that after the first points, which have larger uncertainties, the ratio remains reasonably close to $R\simeq 1$ across most of the measured outgoing-energy range, with the largest deviations concentrated at the highest $E_{\mathrm{out}}$ values.
+In \cref{fig:bateman-en28-p-diagnostics}, the four modes are close in the peak region, while their differences become clearer in the shoulder and tail. This again shows that the peak is not the most useful region for selecting between pre-equilibrium models, since it is strongly influenced by compound emission and the calculated curves overlap there.
+
+The ratio panel shows that, after the first points with larger uncertainties, the calculated spectra remain reasonably close to $R\simeq 1$ across much of the measured outgoing-energy range. The largest deviations occur at higher $E_{\mathrm{out}}$. The component decomposition supports the same physical interpretation as in the Benck case: the lower-energy part of the spectrum is mostly associated with compound emission, while the shoulder and tail are more sensitive to pre-equilibrium contributions. For this incident energy, \texttt{preeqmode=2} gives the best overall compromise and is therefore used in the decomposition panel.
 
 \Epar{$E_n=40.0$ MeV}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Images/EN40.0_00_2x2_diagnostics_28Si_np_Bateman_13740_005.png}
-    \caption{Diagnostic comparison for proton production from \ce{^{28}Si}, Bateman dataset 13740.005, at $E_n=40.0$ MeV.}
+    \caption{Same diagnostic panels as in \cref{fig:benck-en28-p-diagnostics}, but for proton production on \ce{^{28}Si} using the Bateman EXFOR dataset 13740.005 at $E_n=40.0$ MeV. The decomposition panel corresponds to the selected mode, \texttt{preeqmode=2}.}
     \label{fig:bateman-en40-p-diagnostics}
 \end{figure}
 
-At $E_n=40.0$ MeV, the totals overlap strongly near the peak and separate more in the shoulder and tail, which allows us to rule out pre-equilibrium modes 3 and 4. For the selected mode, the ratio starts at a relatively high value at low outgoing energies and then settles closer to 1; deviations grow again toward higher $E_{\mathrm{out}}$, indicating that the tail is the most discriminating region.
+At $E_n=40.0$ MeV, shown in \cref{fig:bateman-en40-p-diagnostics}, the calculated totals overlap strongly near the peak but separate more clearly in the shoulder and high-energy tail. Modes 3 and 4 deviate more visibly from the EXFOR data, while modes 1 and 2 provide a better description of the measured spectrum.
+
+The selected mode, \texttt{preeqmode=2}, gives a reasonable compromise over the measured range. The ratio starts at relatively high values at low outgoing energies and then becomes closer to 1 in the intermediate region. Deviations grow again toward higher $E_{\mathrm{out}}$, confirming that the tail is the most discriminating part of the spectrum. This also shows why the ratio plot is important: in the linear-scale comparison, the modes can appear similar, but the ratio plot makes systematic overprediction or underprediction easier to identify.
 
 \Epar{$E_n=50.0$ MeV}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Images/EN50.0_00_2x2_diagnostics_28Si_np_Bateman_13740_005.png}
-    \caption{Diagnostic comparison for proton production from \ce{^{28}Si}, Bateman dataset 13740.005, at $E_n=50.0$ MeV.}
+    \caption{Same diagnostic panels as in \cref{fig:benck-en28-p-diagnostics}, but for proton production on \ce{^{28}Si} using the Bateman EXFOR dataset 13740.005 at $E_n=50.0$ MeV. The decomposition panel corresponds to the selected mode, \texttt{preeqmode=1}.}
     \label{fig:bateman-en50-p-diagnostics}
 \end{figure}
 
-At $E_n=50.0$ MeV, the same overall pattern is observed. Overall, the agreement improves with increasing incident energy $E_n$: in this case the ratio remains closer to 1 up to about $E_{\mathrm{out}}\approx 30$ MeV. For Bateman (13740.005), the mode selection is driven less by the peak region, where the totals often overlap, and more by the shoulder/tail behaviour, which is consistently highlighted by the ratio plots across the analysed incident energies.
+At $E_n=50.0$ MeV, shown in \cref{fig:bateman-en50-p-diagnostics}, the overall agreement improves compared with lower incident energies. In this case, the ratio remains closer to 1 up to approximately $E_{\mathrm{out}}\approx 30$ MeV, indicating a better reproduction of the main part of the measured spectrum.
+
+For the Bateman dataset, the mode selection is therefore driven less by the peak region, where the calculated totals often overlap, and more by the behaviour in the shoulder and tail. The high-energy end still shows larger deviations, but the main measured region is reproduced more coherently than at lower incident energies. For this case, \texttt{preeqmode=1} gives the best overall behaviour and is used for the component decomposition.
 
 \subsubsection*{\ce{^{56}Fe}, Slypen, 22884.015}
 
-The Slypen dataset provides an additional proton-production comparison for iron. The same diagnostic representation is used here, allowing the total spectra, ratio behaviour, and model-component decomposition to be assessed in a single figure for each incident energy.
+The Slypen dataset provides an additional proton-production comparison for iron. The same diagnostic representation is used here, allowing the total spectra, ratio behaviour, and reaction-mechanism decomposition to be assessed for each incident energy.
 
 \Epar{$E_n=28.5$ MeV}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Images/EN28.5_00_2x2_diagnostics_56Fe_np_Slypen_22884_015.png}
-    \caption{Diagnostic comparison for proton production from \ce{^{56}Fe}, Slypen dataset 22884.015, at $E_n=28.5$ MeV.}
+    \caption{Same diagnostic panels as in \cref{fig:benck-en28-p-diagnostics}, but for proton production on \ce{^{56}Fe} using the Slypen EXFOR dataset 22884.015 at $E_n=28.5$ MeV. The decomposition panel corresponds to the selected mode, \texttt{preeqmode=4}.}
     \label{fig:slypen-en28p5-p-diagnostics}
 \end{figure}
 
-As shown in \cref{fig:slypen-en28p5-p-diagnostics}, the main peak is reasonably well reproduced by the TALYS totals, although the different pre-equilibrium modes lead to visible differences in both peak height and shoulder behaviour. The ratio panel indicates that the selected mode gives the best compromise over the measured range, while the high-energy tail remains difficult to reproduce exactly. The component decomposition shows that the low-energy peak receives a strong compound contribution, while the shoulder and tail are mainly constrained by pre-equilibrium emission.
+As shown in \cref{fig:slypen-en28p5-p-diagnostics}, the main peak is reproduced reasonably well in order of magnitude, although the different pre-equilibrium modes produce visible differences in both peak height and shoulder behaviour. The EXFOR points in the measured range indicate that the choice of pre-equilibrium model has a clear effect above the evaporation peak.
+
+The ratio panel shows that the selected mode provides the best compromise over the measured range, although the high-energy tail remains difficult to reproduce exactly. The component decomposition indicates that the low-energy peak receives a strong compound contribution, while the shoulder and tail are mainly constrained by pre-equilibrium emission. This confirms again that agreement near the peak alone is not sufficient for judging the quality of the model. The tail carries important information about the pre-equilibrium contribution and is therefore essential for selecting the most appropriate mode.
 
 \Epar{$E_n=34.5$ MeV}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Images/EN34.5_00_2x2_diagnostics_56Fe_np_Slypen_22884_015.png}
-    \caption{Diagnostic comparison for proton production from \ce{^{56}Fe}, Slypen dataset 22884.015, at $E_n=34.5$ MeV.}
+    \caption{Same diagnostic panels as in \cref{fig:benck-en28-p-diagnostics}, but for proton production on \ce{^{56}Fe} using the Slypen EXFOR dataset 22884.015 at $E_n=34.5$ MeV. The decomposition panel corresponds to the selected mode, \texttt{preeqmode=4}.}
     \label{fig:slypen-en34p5-p-diagnostics}
 \end{figure}
 
-At $E_n=34.5$ MeV, the same general behaviour is observed. The TALYS curves reproduce the order of magnitude of the EXFOR data, but the ratio panel shows that the agreement varies across the outgoing-energy range. In particular, the shoulder and high-energy tail remain the most informative regions for distinguishing between pre-equilibrium modes. The remaining Slypen incident energies are shown in Appendix~A.
+At $E_n=34.5$ MeV, shown in \cref{fig:slypen-en34p5-p-diagnostics}, the same general behaviour is observed. The TALYS curves reproduce the order of magnitude of the EXFOR data, but the ratio panel shows that the agreement varies across the outgoing-energy range. The shoulder and high-energy tail remain the most informative regions for distinguishing between pre-equilibrium modes.
+
+The component plot supports this interpretation. The compound contribution is more important at low outgoing energy, while pre-equilibrium emission becomes more relevant as $E_{\mathrm{out}}$ increases. The selected mode reproduces the bulk of the spectrum with the best overall compromise among the tested options, although deviations remain near the edges of the measured range. The remaining Slypen incident energies are shown in Appendix~A.
+
