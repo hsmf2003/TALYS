@@ -1,25 +1,13 @@
 \section{Methodology}
 
-In this work, nuclear reactions were simulated with TALYS and the calculated outgoing-particle energy spectra were compared with experimental data from the EXFOR database, maintained by the IAEA Nuclear Data Section \cite{iaea_exfor}. EXFOR provides experimental nuclear reaction data collected from published and reported measurements, including the energy-differential cross-section datasets used in this work. The comparison focused on inclusive light-ion production in neutron-induced reactions. The reactions studied were:
+In this work, nuclear reactions were simulated with TALYS and the calculated outgoing-particle energy spectra were compared with experimental data from the EXFOR database \cite{koning2025talys,iaea_exfor}. The comparison focused on inclusive light-ion production in neutron-induced reactions.
 
+The incident neutron energies were chosen according to the available EXFOR datasets \cite{iaea_exfor}. Depending on the reaction and target, the analysed energies covered approximately the range from 14 MeV to 60 MeV.
 
-\begin{itemize}
-    \item proton production, $(n,px)$, for several targets: Si, Fe, Cr, V and Co;
-    \item deuteron production, $(n,dx)$, for silicon;
-    \item alpha production, $(n,\alpha x)$, for silicon.
-\end{itemize}
+The main objective was to evaluate how sensitive the calculated spectra are to the choice of pre-equilibrium model in TALYS. For this purpose, four calculations were performed for each reaction case, changing only the TALYS keyword \texttt{preeqmode} while keeping the remaining input parameters fixed. This made it possible to attribute the observed differences between calculations mainly to the treatment of pre-equilibrium emission \cite{koning2025talys}.
 
-The incident neutron energies were chosen according to the available EXFOR datasets. Depending on the reaction and target, the analysed energies covered approximately the range from 14 MeV to 60 MeV.
+According to the TALYS manual, modes 1, 2 and 3 are based on the exciton model, but differ in the way the transition rates or collision probabilities are calculated. Mode 1 uses analytical transition rates with an energy-dependent matrix element. Mode 2 uses numerical transition rates with an energy-dependent matrix element and is the default TALYS option. Mode 3 also uses numerical transition rates, but with the optical model used for the collision probability. Mode 4 is different from the previous three because it is based on a multi-step direct/compound model \cite{koning2025talys}.
 
-The main objective was to evaluate how sensitive the calculated spectra are to the choice of pre-equilibrium model in TALYS. For this purpose, four calculations were performed for each reaction case, changing only the TALYS keyword \texttt{preeqmode} while keeping the remaining input parameters fixed. This made it possible to attribute the observed differences between calculations mainly to the treatment of pre-equilibrium emission.
-
-The four pre-equilibrium options tested were:
-
-\[
-\texttt{preeqmode} = 1, 2, 3, 4.
-\]
-
-According to the TALYS manual, modes 1, 2 and 3 are based on the exciton model, but differ in the way the transition rates or collision probabilities are calculated. Mode 1 uses analytical transition rates with an energy-dependent matrix element. Mode 2 uses numerical transition rates with an energy-dependent matrix element and is the default TALYS option. Mode 3 also uses numerical transition rates, but with the optical model used for the collision probability. Mode 4 is different from the previous three because it is based on a multi-step direct/compound model.
 
 In the exciton-model description, the excited nuclear system is represented by a particle-hole configuration. The exciton number is defined as
 
