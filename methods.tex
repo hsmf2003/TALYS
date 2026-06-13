@@ -3,12 +3,12 @@
 In this work, TALYS simulations were compared with experimental outgoing-particle energy spectra from EXFOR. The main objective was to evaluate how well TALYS reproduces the measured light-ion spectra and to investigate the sensitivity of the results to different pre-equilibrium model settings. The reactions studied were:
 
 \begin{itemize}
-\item proton production, ((n,px)), on selected targets, including \ce{^{28}Si}, \ce{^{56}Fe}, \ce{^{52}Cr}, \ce{^{51}V}, and \ce{^{59}Co};
-\item deuteron production, ((n,dx)), on \ce{^{28}Si};
-\item alpha production, ((n,\alpha x)), on \ce{^{28}Si}.
+\item proton production, \((n,px)\), on selected targets, including \ce{^{28}Si}, \ce{^{56}Fe}, \ce{^{52}Cr}, \ce{^{51}V}, and \ce{^{59}Co};
+\item deuteron production, \((n,dx)\), on \ce{^{28}Si};
+\item alpha production, \((n,\alpha x)\), on \ce{^{28}Si}.
 \end{itemize}
 
-For each reaction case, TALYS calculations were performed for the incident neutron energies available in the selected EXFOR datasets, or for a representative subset of those energies when the dataset contained a large number of points. The outgoing-particle energy is denoted by (E_{\mathrm{out}}), and the calculated spectra were compared with the corresponding EXFOR energy-differential cross sections.
+For each reaction case, TALYS calculations were performed for the incident neutron energies available in the selected EXFOR datasets, or for a representative subset of those energies when the dataset contained a large number of points. The outgoing-particle energy is denoted by \(E_{\mathrm{out}}\), and the calculated spectra were compared with the corresponding EXFOR energy-differential cross sections.
 
 To study the sensitivity of the calculated spectra to the treatment of pre-equilibrium emission, four TALYS calculations were performed for each reaction case, corresponding to \texttt{preeqmode = 1--4}. According to the TALYS manual, these options select different models for pre-equilibrium reactions, ranging from exciton-model calculations with different treatments of transition rates to a multi-step direct/compound model \cite{koning2025talys}. In this work, the four calculations are labelled as \texttt{preeq1}, \texttt{preeq2}, \texttt{preeq3}, and \texttt{preeq4}. All other input conditions were kept fixed, so that differences between the spectra could be attributed mainly to the selected pre-equilibrium model.
 
@@ -18,15 +18,15 @@ To study the sensitivity of the calculated spectra to the treatment of pre-equil
 \label{tab:preeq-configurations}
 \begin{tabular}{c c p{0.62\textwidth}}
 \hline
-\textbf{Label used in this work} & \textbf{TALYS keyword} & \textbf{Model definition} \
+\textbf{Label used in this work} & \textbf{TALYS keyword} & \textbf{Model definition} \\
 \hline
-\texttt{preeq1} & \texttt{preeqmode 1} & Exciton model: analytical transition rates with energy-dependent matrix element. \
+\texttt{preeq1} & \texttt{preeqmode 1} & Exciton model: analytical transition rates with energy-dependent matrix element. \\
 
-\texttt{preeq2} & \texttt{preeqmode 2} & Exciton model: numerical transition rates with energy-dependent matrix element. \
+\texttt{preeq2} & \texttt{preeqmode 2} & Exciton model: numerical transition rates with energy-dependent matrix element. \\
 
-\texttt{preeq3} & \texttt{preeqmode 3} & Exciton model: numerical transition rates with optical model for collision probability. \
+\texttt{preeq3} & \texttt{preeqmode 3} & Exciton model: numerical transition rates with optical model for collision probability. \\
 
-\texttt{preeq4} & \texttt{preeqmode 4} & Multi-step direct/compound model. \
+\texttt{preeq4} & \texttt{preeqmode 4} & Multi-step direct/compound model. \\
 \hline
 \end{tabular}
 \end{table}
@@ -36,14 +36,19 @@ The comparison was based on both qualitative and quantitative criteria. First, t
 
 Second, the TALYS spectra were compared with EXFOR through a point-by-point ratio. Since the TALYS output and the EXFOR data are not always given at exactly the same outgoing energies, the TALYS total spectrum was interpolated at the EXFOR \(E_{\mathrm{out}}\) values. The ratio was then calculated as
 
+%
 \begin{equation}
 R(E_{\mathrm{out}}) =
-\frac{\left(\mathrm{d}\sigma/\mathrm{d}E\right)*{\mathrm{TALYS}}(E*{\mathrm{out}})}
-{\left(\mathrm{d}\sigma/\mathrm{d}E\right)*{\mathrm{EXFOR}}(E*{\mathrm{out}})} .
+\frac{
+\left(\mathrm{d}\sigma/\mathrm{d}E\right)_{\mathrm{TALYS}}(E_{\mathrm{out}})
+}{
+\left(\mathrm{d}\sigma/\mathrm{d}E\right)_{\mathrm{EXFOR}}(E_{\mathrm{out}})
+}.
 \label{eq:ratio}
 \end{equation}
+%
 
-A value \(R(E_{\mathrm{out}}\) \simeq 1) indicates good agreement between TALYS and EXFOR at that outgoing energy. Values above 1 indicate that TALYS overpredicts the experimental data, while values below 1 indicate an underprediction. The ratio plot is especially useful when the total spectra appear visually similar, because it makes systematic deviations easier to identify.
+A value A value \(R(E_{\mathrm{out}}) \simeq 1\) indicates good agreement between TALYS and EXFOR at that outgoing energy. Values above 1 indicate that TALYS overpredicts the experimental data, while values below 1 indicate an underprediction. The ratio plot is especially useful when the total spectra appear visually similar, because it makes systematic deviations easier to identify.
 
 Finally, for the selected pre-equilibrium mode in each case, the TALYS spectrum was decomposed into its main reaction-mechanism components. This made it possible to identify which parts of the spectrum are mainly associated with compound emission, pre-equilibrium emission, direct-like processes, or multiple pre-equilibrium emission. In general, the low-\(E_{\mathrm{out}}\) peak is expected to be more strongly associated with compound-nucleus evaporation, while the shoulder and high-\(E_{\mathrm{out}}\) tail are more sensitive to pre-equilibrium and direct-like contributions.
 
