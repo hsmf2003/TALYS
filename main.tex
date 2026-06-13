@@ -29,9 +29,14 @@
 
 \section*{Abstract}
 
-The aim of this project was to use TALYS to calculate energy-differential light-ion emission in neutron-induced reactions and to compare the resulting emitted ions' spectra with selected experimental datasets from EXFOR.
+The aim of this project was to use TALYS to calculate energy-differential light-ion emission spectra in neutron-induced reactions and to compare the resulting predictions with selected experimental datasets from EXFOR. The study focused on proton production for several targets, including \ce{Si}, \ce{Fe}, \ce{Cr}, \ce{V}, and \ce{Co}, and on deuteron and alpha production for silicon.
 
-We focus on proton emission for several targets (Si, Fe, Cr, V, Co), and on deuteron and alpha emission for silicon. This selection allows us to assess which datasets and incident neutron energies are most informative for constraining TALYS predictions, and to study how model choices and parameters affect both the spectra and the corresponding integrated cross sections.
+Four TALYS pre-equilibrium options, \texttt{preeqmode = 1--4}, were tested in order to evaluate the sensitivity of the calculated spectra to the treatment of pre-equilibrium emission. For each case, the comparison was based on the total TALYS spectra, logarithmic-scale plots, point-by-point TALYS/EXFOR ratios, and reaction-mechanism decompositions.
+
+The results show that proton production is generally reproduced more smoothly than deuteron production, with \texttt{preeqmode = 1} and \texttt{preeqmode = 2} often giving the best agreement. Deuteron spectra show stronger discrepancies and a more case-dependent mode selection, especially in the high-outgoing-energy tail. For the alpha-production case analysed, \texttt{preeqmode = 1} gives the best overall compromise, although the lack of low-energy EXFOR data limits the interpretation of the evaporation peak. 
+
+It's concluded that the shoulder and high-energy tail are the most informative regions for assessing the effect of the pre-equilibrium model. However, there is no single preeqmode that gives the best agreement for all reactions and emitted particles.
+
 
 \newpage
 
