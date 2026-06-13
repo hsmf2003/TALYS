@@ -8,29 +8,30 @@
 \selectlanguage{english}
 \pagenumbering{arabic}
 \pagestyle{empty}
+
 \maketitle
 
 \begin{figure}[b]
     \centering
     \includegraphics[width=3cm]{Images/UU_logo.jpg}
 \end{figure}
-\thispagestyle{empty}
 
+\thispagestyle{empty}
 \clearpage
+
 \selectlanguage{english}
 \tableofcontents
-
 \clearpage
+
 \pagenumbering{arabic}
 \setcounter{page}{1}
 \pagestyle{plain}
 
 \section*{Abstract}
 
-The aim of this project was to use TALYS to calculate energy-differential light-ion emission in neutron-induced reactions and to compare the resulting emitted ions' spectra with selected experimental datasets from EXFOR. We focus on proton emission for several targets (Si, Fe, Cr, V, Co), and on deuteron and alpha emission for silicon. This selection allows us to assess which datasets and incident neutron energies are most informative for constraining TALYS predictions, and to study how model choices and parameters affect both the spectra and the corresponding integrated cross sections.
+The aim of this project was to use TALYS to calculate energy-differential light-ion emission in neutron-induced reactions and to compare the resulting emitted ions' spectra with selected experimental datasets from EXFOR.
 
-
-% TODO: Add a short summary of the main results and conclusions.
+We focus on proton emission for several targets (Si, Fe, Cr, V, Co), and on deuteron and alpha emission for silicon. This selection allows us to assess which datasets and incident neutron energies are most informative for constraining TALYS predictions, and to study how model choices and parameters affect both the spectra and the corresponding integrated cross sections.
 
 \newpage
 
@@ -42,9 +43,7 @@ The aim of this project was to use TALYS to calculate energy-differential light-
 \input{conclusion}
 \input{appendix}
 
-% Uncomment this only if you actually cite references in the text
- \bibliographystyle{plainnat}
- \bibliography{main}
+\bibliographystyle{plainnat}
+\bibliography{main}
 
 \end{document}
-
